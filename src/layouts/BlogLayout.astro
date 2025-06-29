@@ -1,0 +1,117 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+// This would typically come from a content collection or API
+const featuredArticles = [
+  {
+    title: "The Art of Hygge and Philosophical Thought",
+    author: "Phruvadorn Thontra",
+    excerpt: "Exploring the Danish concept of hygge and its philosophical implications for modern living...",
+    image: "/hygge-featured.jpg",
+    href: "/articles/hygge-philosophy",
+    category: "Philosophy"
+  },
+  // Add more featured articles
+];
+---
+
+<BaseLayout title={`${title} | Hygge Thoughts`} description={description}>
+  <!-- Blog Hero Section -->
+  <section class="blog-hero">
+    <Container>
+      <div class="blog-hero-content">
+        <h1 class="blog-title">{title}</h1>
+        {description && (
+          <p class="blog-description">{description}</p>
+        )}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Featured Articles Section -->
+  <section class="featured-section">
+    <Container>
+      <h2 class="section-title">Featured Articles</h2>
+      <div class="featured-grid">
+        {featuredArticles.map((article) => (
+          <ArticleCard {...article} />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Main Content -->
+  <section class="blog-content">
+    <Container>
+      <slot />
+    </Container>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    background: linear-gradient(135deg, var(--color-background-warm) 0%, #fed7aa 100%);
+    padding: var(--spacing-3xl) 0;
+    text-align: center;
+  }
+
+  .blog-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .blog-title {
+    font-size: var(--font-size-5xl);
+    font-weight: bold;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .blog-description {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .featured-section {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-background-alt);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: bold;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .blog-content {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  @media (max-width: 768px) {
+    .blog-title {
+      font-size: var(--font-size-4xl);
+    }
+    
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
