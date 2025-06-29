@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Knowledge_Hub', href: '/knowledgehub' },
+  { name: 'CV', href: '/cv' }
+];
+---
+
+<nav class="navigation">
+  <div class="container">
+    <div class="nav-content">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="/" class="logo-link">
+          <Image src="/photos/hooplogonobg.png" alt="logo" width="32" height="32">
+          <p class="logo-text">Hygge Thoughts</p>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        {navItems.map((item) => (
+          <a href={item.href} class="nav-link">
+            {item.name}
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navigation {
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border-light);
+    color: var(--color-primary);
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-link {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--font-description);
+    transition: var(--transition);
+    padding: var(--spacing-xs);
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary-light);
+  }
+
+  .profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary-light);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    
+  }
+</style>

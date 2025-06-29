@@ -1,0 +1,57 @@
+---
+import Container from './ui/Container.astro';
+
+const currentYear = new Date().getFullYear();
+
+
+const socialLinks = [
+  { name: 'Instagram', href: '#' },
+  { name: 'Pinterest', href: '#' }
+];
+---
+
+<footer class="footer">
+  <Container>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p class="footer-copyright">
+          © {currentYear} Hygge Home. All Rights Reserved | all of my knowledge | 
+          <a href="/contact" class="footer-link">Contact Us</a>: 
+          <a href="mailto:hyggehome@hyggehome.com" class="footer-link">hyggehome@hyggehome.com</a>
+        </p>
+        
+        <div class="footer-social">
+          {socialLinks.map((link) => (
+            <a href={link.href} class="footer-link" aria-label={link.name}>
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-primary-dark);
+    color: white;
+    padding: var(--spacing-md);
+  }
+
+  .footer-social {
+    text-decoration: none;
+  }
+
+    .footer-link {
+      text-decoration: none;
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
