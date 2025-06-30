@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 export interface Props {
   class?: string;
@@ -9,3 +10,16 @@ const { class: className = '' } = Astro.props;
 <div class={`card ${className}`}>
   <slot />
 </div>
+=======
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`card ${className}`}>
+  <slot />
+</div>
+>>>>>>> dd7a9be (อปเดตหนาเวบ)

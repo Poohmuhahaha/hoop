@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Card from "./ui/Card.astro";
 import Button from "./ui/Button.astro";
@@ -65,3 +66,75 @@ const { title, excerpt, image, href } = Astro.props;
   }
 
 </style>
+=======
+---
+import Card from "./ui/Card.astro";
+import Button from "./ui/Button.astro";
+import { Image } from "astro:assets";
+
+export interface Props {
+  title: string;
+  excerpt: string;
+  image: string;
+  href: string;
+}
+
+const { title, excerpt, image, href } = Astro.props;
+---
+
+<Card class="article-card">
+  <div class="article-image">
+    <Image
+      src={image}
+      alt={title}
+      class="article-img"
+      width="400"
+      height="200"
+    />
+  </div>
+
+  <div class="article-content">
+    <div>
+    <h3 class="article-title">{title}</h3>
+    <p class="article-excerpt">{excerpt}</p>
+    </div>
+    <div class="article-cta">
+      <Button href={href} variant="primary" size="sm"> Read → </Button>
+    </div>
+  </div>
+</Card>
+
+<style>
+  .article-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-img {
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-md);
+  }
+
+  .article-content {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-primary);
+  }
+
+
+  .article-title {
+    font-size: var(--font-description);
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    padding-bottom: 20px;
+  }
+
+  .article-excerpt {
+    color: var(--color-primary-dark);
+    font-size: var(--font-description);
+  }
+
+</style>
+>>>>>>> dd7a9be (อปเดตหนาเวบ)

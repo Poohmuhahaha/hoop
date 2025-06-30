@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Container from "./ui/Container.astro";
 import ArticleCard from "./ArticleCard.astro";
@@ -128,3 +129,140 @@ const articles = [
     }
   }
 </style>
+=======
+---
+import Container from "./ui/Container.astro";
+import ArticleCard from "./ArticleCard.astro";
+import Button from "./ui/Button.astro";
+
+const articles = [
+  {
+    title:
+      "Pixel Art & Game Development",
+    excerpt:
+      "This is the place that I collect the picture that I draw it and use that drawing skill to create the game",
+    image: "/photos/Maple.png",
+    href: "/articles/pixelandgamedev",
+  },
+  {
+    title:
+      "Math hub",
+    excerpt:
+      "This place is the allll of the mathematics that I have learned and I want to write the handbook in this place for people who wnat to know math but don't know where to learn like me. I want to collect everything",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+  
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+    {
+    title:
+      "Data analysis",
+    excerpt:
+      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
+    image: "/photos/Senku.jpg",
+    href: "/articles/math_hub",
+  },
+];
+---
+
+<section class="articles">
+  <Container>
+      <h2 class="article-heading">
+    Articles
+  </h2>
+
+    <div class="articles-grid">
+      {articles.map((article) => <ArticleCard {...article} />)}
+
+      <!-- View More Card -->
+    </div>
+  </Container>
+</section>
+
+<style>
+    .article-heading {
+    font-size: var(--font-title);
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    padding-bottom: 40px;
+  }
+
+  .articles {
+    padding: var(--spacing-between) 0;
+    background-color: var(--color-background-alt);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-between);
+  }
+
+  .view-more-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A59C8B;
+    border-radius: var(--border-radius-md);
+  }
+
+  @media (max-width: 768px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+>>>>>>> dd7a9be (อปเดตหนาเวบ)
