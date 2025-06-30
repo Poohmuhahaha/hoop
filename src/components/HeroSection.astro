@@ -6,9 +6,7 @@ import { Image } from "astro:assets";
 
 <section class="hero">
   <Container>
-  <h2 class="hero-heading">
-    New
-  </h2>
+    <h2 class="hero-heading">New</h2>
     <div class="hero-content">
       <!-- Featured Image -->
       <div class="hero-image">
@@ -24,13 +22,13 @@ import { Image } from "astro:assets";
         <div>
           <h1 class="hero-title">Transport Economic</h1>
           <p class="hero-description">
-            Thi thesis would like to research, learn about the Economic that isn't just microeconomic and marcoeconomic, it has many factors that we don't know one of thwm I would like to do about transportation
+            Thi thesis would like to research, learn about the Economic that
+            isn't just microeconomic and marcoeconomic, it has many factors that
+            we don't know one of thwm I would like to do about transportation
           </p>
         </div>
         <div class="hero-cta">
-          <Button href="/articles" variant="primary" size="sm">
-            Read →
-          </Button>
+          <Button href="/articles" variant="primary" size="sm"> Read → </Button>
         </div>
       </div>
     </div>
@@ -85,20 +83,5 @@ import { Image } from "astro:assets";
 
   .hero-img {
     border-radius: var(--border-radius-md);
-  }
-
-  @media (max-width: 768px) {
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-xl);
-    }
-
-    .hero-title {
-      font-size: var(--font-size-4xl);
-    }
-
-    .hero-img {
-      height: 300px;
-    }
   }
 </style>

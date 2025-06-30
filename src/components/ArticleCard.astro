@@ -26,8 +26,8 @@ const { title, excerpt, image, href } = Astro.props;
 
   <div class="article-content">
     <div>
-    <h3 class="article-title">{title}</h3>
-    <p class="article-excerpt">{excerpt}</p>
+      <h3 class="article-title">{title}</h3>
+      <p class="article-excerpt">{excerpt}</p>
     </div>
     <div class="article-cta">
       <Button href={href} variant="primary" size="sm"> Read → </Button>
@@ -54,7 +54,6 @@ const { title, excerpt, image, href } = Astro.props;
     background-color: var(--color-primary);
   }
 
-
   .article-title {
     font-size: var(--font-description);
     font-weight: bold;
@@ -66,5 +65,4 @@ const { title, excerpt, image, href } = Astro.props;
     color: var(--color-primary-dark);
     font-size: var(--font-description);
   }
-
 </style>

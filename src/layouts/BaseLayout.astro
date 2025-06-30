@@ -4,10 +4,13 @@ export interface Props {
   description?: string;
 }
 
-const { title = 'Hygge Thoughts', description = 'A cozy sanctuary with Danish philosophy and mindful living' } = Astro.props;
+const {
+  title = "Hygge Thoughts",
+  description = "A cozy sanctuary with Danish philosophy and mindful living",
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,18 +18,21 @@ const { title = 'Hygge Thoughts', description = 'A cozy sanctuary with Danish ph
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  
+
   <body>
     <slot />
   </body>
 </html>
 
 <style is:global>
-  @import '../styles/global.css';
+  @import "../styles/global.css";
 </style>
