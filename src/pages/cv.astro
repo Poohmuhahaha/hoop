@@ -1,10 +1,135 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+import Hero from "../components/portfolio/Hero.astro";
+import CaseStudies from "../components/portfolio/CaseStudies.astro";
+import ClientLogos from "../components/portfolio/ClientLogos.astro";
+import Testimonials from "../components/portfolio/Testimonials.astro";
+import About from "../components/portfolio/About.astro";
+import Contact from "../components/portfolio/Contact.astro";
 import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+
+// Sample data - replace with your actual data
+const portfolioData = {
+  name: "Phuwadon Thontra",
+  title: "Seeker who loves to learn.",
+  description:
+    "I create beautiful and functional digital experiences that help businesses grow and succeed in the digital world.",
+  profileImage: "/111.jpg",
+  email: "john@example.com",
+  phone: "+1 (555) 123-4567",
+  location: "San Francisco, CA",
+};
+
+const projects = [
+  {
+    id: "ecommerce-platform",
+    title: "E-commerce Platform",
+    description:
+      "A modern e-commerce platform built with React and Node.js featuring real-time inventory management and seamless payment integration.",
+    image: "/111.jpg",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/example",
+    featured: true,
+  },
+  {
+    id: "mobile-app",
+    title: "Mobile Banking App",
+    description:
+      "Secure and intuitive mobile banking application with biometric authentication and real-time transaction tracking.",
+    image: "/111.jpg",
+    technologies: ["React Native", "Firebase", "TypeScript"],
+    liveUrl: "https://example.com",
+    featured: true,
+  },
+  {
+    id: "dashboard",
+    title: "Analytics Dashboard",
+    description:
+      "Comprehensive analytics dashboard for business intelligence with interactive charts and real-time data visualization.",
+    image: "/111.jpg",
+    technologies: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/example",
+    featured: true,
+  },
+];
+
+const testimonials = [
+  {
+    id: "testimonial-1",
+    name: "Sarah Johnson",
+    role: "CEO",
+    company: "TechStart Inc.",
+    content:
+      "Working with John was an absolute pleasure. He delivered exceptional results on time and exceeded our expectations. His attention to detail and technical expertise are unmatched.",
+    avatar: "/111.jpg",
+    rating: 5,
+  },
+  {
+    id: "testimonial-2",
+    name: "Michael Chen",
+    role: "Product Manager",
+    company: "InnovateLab",
+    content:
+      "John's ability to translate complex requirements into elegant solutions is remarkable. He's not just a developer, but a true problem solver who cares about the end user experience.",
+    avatar: "/111.jpg",
+    rating: 5,
+  },
+  {
+    id: "testimonial-3",
+    name: "Emily Rodriguez",
+    role: "Design Director",
+    company: "Creative Studio",
+    content:
+      "John seamlessly bridges the gap between design and development. His code is clean, maintainable, and always pixel-perfect. A true professional who delivers quality work consistently.",
+    avatar: "/111.jpg",
+    rating: 5,
+  },
+];
 ---
 
-<BaseLayout title="Hoop">
+<PortfolioLayout
+  title={`${portfolioData.name} - ${portfolioData.title}`}
+  description={portfolioData.description}
+  name={portfolioData.name}
+>
   <Navigation />
-  <Footer />
-</BaseLayout>
+  <Hero
+    name={portfolioData.name}
+    title={portfolioData.title}
+    description={portfolioData.description}
+    profileImage={portfolioData.profileImage}
+  />
+
+  <CaseStudies projects={projects} />
+
+  <ClientLogos />
+
+  <Testimonials testimonials={testimonials} />
+
+  <About
+    name={portfolioData.name}
+    profileImage="/111.jpg"
+    bio="I'm a passionate full-stack developer with over 3 years of experience creating digital solutions that make a difference. I specialize in modern web technologies and love turning complex problems into simple, beautiful designs."
+    skills={[
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Python",
+      "AWS",
+      "MongoDB",
+      "PostgreSQL",
+      "Docker",
+      "Git",
+    ]}
+    experience="3+ Years"
+    education="Computer Science, MIT"
+  />
+
+  <Contact
+    email={portfolioData.email}
+    phone={portfolioData.phone}
+    location={portfolioData.location}
+  />

@@ -1,0 +1,254 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  projects?: Array<{
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    technologies: string[];
+    liveUrl?: string;
+    githubUrl?: string;
+    featured?: boolean;
+  }>;
+}
+
+const { projects = [] } = Astro.props;
+
+const defaultProjects = [
+  {
+    id: "ecommerce-platform",
+    title: "E-commerce Platform",
+    description: "A modern e-commerce platform built with React and Node.js featuring real-time inventory management and seamless payment integration.",
+    image: "/project-1.jpg",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/example",
+    featured: true
+  },
+  {
+    id: "mobile-app",
+    title: "Mobile Banking App",
+    description: "Secure and intuitive mobile banking application with biometric authentication and real-time transaction tracking.",
+    image: "/project-2.jpg",
+    technologies: ["React Native", "Firebase", "TypeScript"],
+    liveUrl: "https://example.com",
+    featured: true
+  },
+  {
+    id: "dashboard",
+    title: "Analytics Dashboard",
+    description: "Comprehensive analytics dashboard for business intelligence with interactive charts and real-time data visualization.",
+    image: "/project-3.jpg",
+    technologies: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/example",
+    featured: true
+  }
+];
+
+const projectList = projects.length > 0 ? projects : defaultProjects;
+---
+
+<section class="case-studies case-study" id="portfolio">
+  <div class="container">
+    <div class="case-study-header">
+      <h2 class="case-study-heading">Case Studies</h2>
+      <p class="case-study-description">
+        Here are some of my recent projects that showcase my skills and expertise
+      </p>
+    </div>
+    
+    <div class="projects-grid">
+      {projectList.map((project, index) => (
+        <div class={`project-card ${project.featured ? 'featured' : ''} ${index === 0 ? 'large' : ''}`}>
+          <div class="project-image">
+            <Image src={project.image} alt={project.title} width="30" height="30" />
+            <div class="project-overlay">
+              <div class="project-links">
+                {project.liveUrl && (
+                  <a href={project.liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a href={project.githubUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-content">
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-description">{project.description}</p>
+            
+            <div class="project-technologies">
+              {project.technologies.map((tech) => (
+                <span class="tech-tag">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="view-all">
+      <a href="/portfolio" class="btn btn-outline">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .case-studies {
+    background-color: var(--color-primary);
+  }
+
+  .case-study-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .case-study-heading {
+    font-size: var(--font-title);
+    color: var(--color-text);
+  }
+
+  .case-study-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .project-card {
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .project-card.large {
+    grid-row: span 2;
+  }
+
+  .project-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+
+  .project-card.large .project-image {
+    aspect-ratio: 16/12;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-card:hover .project-image img {
+  }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-radius: 50%;
+    text-decoration: none;
+  }
+
+  .project-link:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .project-content {
+    padding: var(--spacing-lg);
+  }
+
+  .project-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .project-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .tech-tag {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-background-gray);
+    color: var(--color-text-muted);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+  }
+
+  .view-all {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .project-card.large {
+      grid-row: span 1;
+    }
+  }
+</style>

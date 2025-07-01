@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+  name?: string;
+  bio?: string;
+  skills?: string[];
+  experience?: string;
+  education?: string;
+  profileImage?: string;
+}
+
+const {
+  name = "Phuwadon Thontra",
+  bio = "I'm a passionate full-stack developer with over 3 years of experience creating digital solutions that make a difference. I specialize in modern web technologies and love turning complex problems into simple, beautiful designs.",
+  skills = [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Python",
+    "AWS",
+    "MongoDB",
+    "PostgreSQL",
+    "Docker",
+    "Git",
+  ],
+  experience = "",
+  education = "Bachelor degree at Harbour.Space Insitute of Technology (Digital Marketing)",
+  profileImage = "/111.jpg",
+} = Astro.props;
+---
+
+<section class="about section">
+  <div class="container">
+    <div class="about-content">
+
+      <div class="about-text">
+          <h2 class="section-title">About Me</h2>
+          <p class="bio-text">{bio}</p>
+
+        <div class="about-details">
+          <div class="detail-item">
+            <h4 class="detail-label">Experience</h4>
+          </div>
+          
+          <div class="detail-item">
+            <h4 class="detail-label">Education</h4>
+            <p class="detail-value">{education}</p>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h3 class="skills-title">Technical Skills</h3>
+          
+          <div class="skills-grid">
+            {skills.map((skill) => <p class="skill-tag">{skill}</p>)}
+          </div>
+
+        </div>
+
+        <div class="about-actions">
+          <a href="/resume.pdf" class="btn btn-primary" download
+            >Download Resume</a
+          >
+        </div>
+
+      </div>
+
+      <div class="about-image">
+        <div class="image-container">
+          <Image
+            src={profileImage}
+            alt={`About ${name}`}
+            class="about-img"
+            width="500"
+            height="700"
+          >
+          </Image>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .about {
+      background-color: var(--color-primary);
+    }
+
+    .about-content {
+      display: flex;
+      gap: var(--spacing-between);
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .section-title {
+      font-size: var(--font-title);
+      font-weight: 700;
+      color: var(--color-text);
+      padding-bottom: 20px;
+    }
+
+    .bio-text {
+      font-size: var(--font-description);
+      color: var(--color-primary-dark);
+      padding-bottom: 20px;
+    }
+
+    .detail-value {
+      color: var(--color-primary);
+      font-size: var(--font-description);
+    }
+
+    .about-details {
+      display: flex;
+      gap: var(--spacing-xs);
+      flex-direction: column;
+    }
+
+    .detail-item {
+      padding: var(--spacing-button);
+      background-color: var(--color-background);
+      border-radius: var(--border-radius-md);
+      align-items: center;
+      font-size: var(--font-description);
+      color: var(--color-primary);
+      justify-content: center;
+    }
+
+    .skills-title {
+      color: var(--color-primary-dark);
+      font-size: var(--font-title);
+      padding-top: 40px;
+      padding-bottom: 20px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      padding-bottom: 40px;
+    }
+
+    .skill-tag {
+      background-color: var(--color-primary-dark);
+      color: var(--color-primary);
+      border-radius: var(--border-radius-md);
+      font-size: var(--font-description);
+      width: 180px;
+      height: 70px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-image {
+      display: flex;
+      justify-content: center;
+      border-radius: var(--border-radius-md);
+    }
+
+    .image-container {
+      width: 600px;
+      height: 700px;
+    }
+
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+    }
+
+    .about-actions {
+      padding-bottom: 80px;
+      width: 100px;
+    }
+  </style>
+</section>

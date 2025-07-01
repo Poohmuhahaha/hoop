@@ -1,0 +1,114 @@
+---
+export interface Props {
+  clients?: Array<{
+    name: string;
+    logo: string;
+    url?: string;
+  }>;
+}
+
+const { clients = [] } = Astro.props;
+
+const defaultClients = [
+  { name: "Amazon", logo: "/111.jpg", url: "https://amazon.com" },
+  { name: "Apple", logo: "/111.jpg", url: "https://apple.com" },
+  { name: "Google", logo: "/111.jpg", url: "https://google.com" },
+  { name: "Tesla", logo: "/111.jpg", url: "https://tesla.com" },
+  { name: "Target", logo: "/111.jpg", url: "https://target.com" },
+  { name: "Spotify", logo: "/111.jpg", url: "https://spotify.com" }
+];
+
+const clientList = clients.length > 0 ? clients : defaultClients;
+---
+
+<section class="clients section">
+  <div class="container">
+    <div class="clients-header">
+      <h2 class="clients-title">Trusted by leading companies</h2>
+    </div>
+    
+    <div class="clients-grid">
+      {clientList.map((client) => (
+        <div class="client-item">
+          {client.url ? (
+            <a href={client.url} target="_blank" rel="noopener noreferrer" class="client-link">
+              <img src={client.logo} alt={client.name} class="client-logo" />
+            </a>
+          ) : (
+            <img src={client.logo} alt={client.name} class="client-logo" />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients {
+    background-color: var(--color-primary);
+    padding: var(--spacing-xl) 0;
+  }
+
+  .clients-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .clients-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--spacing-xl);
+    align-items: center;
+  }
+
+  .client-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+
+  .client-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+  }
+
+  .client-link:hover {
+    opacity: 1;
+  }
+
+  .client-logo {
+    max-width: 120px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    filter: grayscale(100%);
+  }
+
+  .client-link:hover .client-logo {
+    filter: grayscale(0%);
+  }
+
+  @media (max-width: 768px) {
+    .clients-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-lg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .clients-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
