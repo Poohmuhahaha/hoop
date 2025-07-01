@@ -55,9 +55,6 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
   <div class="container">
     <div class="case-study-header">
       <h2 class="case-study-heading">Case Studies</h2>
-      <p class="case-study-description">
-        Here are some of my recent projects that showcase my skills and expertise
-      </p>
     </div>
     
     <div class="projects-grid">
@@ -106,25 +103,22 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
 </section>
 
 <style>
+    .case-study-heading {
+    font-size: var(--font-title);
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: green;
+  }
+
   .case-studies {
     background-color: var(--color-primary);
   }
 
-  .case-study-header {
-    text-align: center;
-    margin-bottom: var(--spacing-3xl);
-  }
-
   .case-study-heading {
     font-size: var(--font-title);
-    color: var(--color-text);
-  }
-
-  .case-study-description {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-muted);
-    max-width: 600px;
-    margin: 0 auto;
+    color: var(--color-primary-dark);
   }
 
   .projects-grid {
@@ -242,13 +236,5 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
     text-align: center;
   }
 
-  @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .project-card.large {
-      grid-row: span 1;
-    }
-  }
+
 </style>

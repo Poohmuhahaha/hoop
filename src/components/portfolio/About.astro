@@ -1,49 +1,38 @@
 ---
 import { Image } from "astro:assets";
+import Container from "../ui/Container.astro";
 
 export interface Props {
-  name?: string;
-  bio?: string;
-  skills?: string[];
-  experience?: string;
-  education?: string;
-  profileImage?: string;
+  name: string;
+  bio: string;
+  skills: string[];
+  experience: string;
+  education: string;
+  profileImage: string;
 }
 
 const {
-  name = "Phuwadon Thontra",
-  bio = "I'm a passionate full-stack developer with over 3 years of experience creating digital solutions that make a difference. I specialize in modern web technologies and love turning complex problems into simple, beautiful designs.",
-  skills = [
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Node.js",
-    "Python",
-    "AWS",
-    "MongoDB",
-    "PostgreSQL",
-    "Docker",
-    "Git",
-  ],
-  experience = "",
-  education = "Bachelor degree at Harbour.Space Insitute of Technology (Digital Marketing)",
-  profileImage = "/111.jpg",
+  name,
+  bio,
+  skills = [],
+  experience,
+  education,
+  profileImage,
 } = Astro.props;
 ---
 
 <section class="about section">
-  <div class="container">
+  <Container>
     <div class="about-content">
-
       <div class="about-text">
-          <h2 class="section-title">About Me</h2>
-          <p class="bio-text">{bio}</p>
+        <h2 class="section-title">About Me</h2>
+        <p class="bio-text">{bio}</p>
 
         <div class="about-details">
           <div class="detail-item">
             <h4 class="detail-label">Experience</h4>
           </div>
-          
+
           <div class="detail-item">
             <h4 class="detail-label">Education</h4>
             <p class="detail-value">{education}</p>
@@ -52,11 +41,10 @@ const {
 
         <div class="skills-section">
           <h3 class="skills-title">Technical Skills</h3>
-          
+
           <div class="skills-grid">
             {skills.map((skill) => <p class="skill-tag">{skill}</p>)}
           </div>
-
         </div>
 
         <div class="about-actions">
@@ -64,7 +52,6 @@ const {
             >Download Resume</a
           >
         </div>
-
       </div>
 
       <div class="about-image">
@@ -75,12 +62,11 @@ const {
             class="about-img"
             width="500"
             height="700"
-          >
-          </Image>
+          />
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 
   <style>
     .about {

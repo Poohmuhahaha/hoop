@@ -1,41 +1,23 @@
 ---
 import { Image } from "astro:assets";
+import Container from "../ui/Container.astro";
 
 export interface Props {
   name: string;
   title: string;
-  description: string;
   profileImage: string;
 }
 
-const { name, title, description, profileImage } = Astro.props;
+const { name, title, profileImage } = Astro.props;
 ---
 
-<section class="hero" id="home">
-  <div class="container">
-      <h2 class="hero-heading">Available for hire</h2>
-    <div class="hero-content">
-      <div class="hero-text">
+<section class="hero">
 
-        <h1 class="hero-title">
-          Hi, I'm <span class="name">{name}</span><br />
-          {title}
-        </h1>
-
-        <p class="hero-description">
-          {description}
-        </p>
-
-        <div class="hero-actions">
-          <a href="#portfolio" class="btn-primary">View My Work</a>
-          <a href="#contact" class="btn-primary">Get In Touch</a>
-        </div>
-
-       
-      </div>
-
+  <Container>
+    <h2 class="hero-heading">Available for hire!</h2>
+    <div class="hero-all-content">
+      
       <div class="hero-image">
-        <div class="image-wrapper">
           <Image
             src={profileImage}
             alt={name}
@@ -43,14 +25,25 @@ const { name, title, description, profileImage } = Astro.props;
             width="100"
             height="100"
           />
+      </div>
+
+      <div class="hero-text-and-buttons">
+        <h1 class="hero-title">
+          Hi, I'm <span class="name">{name}</span><br />
+          {title}
+        </h1>
+
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-primary">Get In Touch</a>
         </div>
+        
       </div>
     </div>
-  </div>
+  </Container>
 </section>
-
 <style>
-    .hero-heading {
+  .hero-heading {
     font-size: var(--font-title);
     font-weight: bold;
     color: var(--color-primary-dark);
@@ -62,35 +55,19 @@ const { name, title, description, profileImage } = Astro.props;
   .hero {
     padding: var(--spacing-3xl) 0;
     background: var(--color-primary);
-    
   }
 
-  .hero-text {
+  .hero-text-and-buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
-  .hero-content {
+  .hero-all-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-between  );
-    padding-bottom: var(--spacing-between);
-    height: 400px;
-  }
-
-  .avilable-section {
-    display: inline-flex;
-    align-items: center;
-    border-radius: var(--border-radius-md);
-    font-size: var(--font-description);
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-success);
-    animation: pulse 2s infinite;
+    gap: var(--spacing-between);
+    height: 431px;
   }
 
   .hero-title {
@@ -101,49 +78,10 @@ const { name, title, description, profileImage } = Astro.props;
     padding-bottom: 20px;
   }
 
-  .hero-description {
-    font-size: var(--font-description);
-    color: var(--color-primary-dark);
-  }
-
-  .name {
-    color: var(--color-primary-dark);
-  }
-
   .hero-actions {
     display: flex;
     gap: var(--spacing-sm);
     padding-top: var(--spacing-md);
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: var(--spacing-md);
-    padding-top: var(--spacing-between);
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: var(--color-primary);
-    background-color: var(--color-primary-dark);
-    width: 200px;
-    height: 70px;
-    border-radius: var(--border-radius-md);
-    justify-content: center;
-  }
-
-  .stat-number {
-    font-size: var(--font-description);
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .stat-label {
-    font-size: var(--font-description);
-    color: var(--color-text-muted);
   }
 
   .hero-image {

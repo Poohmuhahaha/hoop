@@ -11,13 +11,10 @@ import Navigation from "../components/Navigation.astro";
 // Sample data - replace with your actual data
 const portfolioData = {
   name: "Phuwadon Thontra",
-  title: "Seeker who loves to learn.",
-  description:
-    "I create beautiful and functional digital experiences that help businesses grow and succeed in the digital world.",
+  title: 'A curious and creative digital student with a passion for art, technology, and meaningful communication.',
   profileImage: "/111.jpg",
-  email: "john@example.com",
-  phone: "+1 (555) 123-4567",
-  location: "San Francisco, CA",
+  email: "thontrapoowadol@example.com",
+  phone: "+66 80-910-1328",
 };
 
 const projects = [
@@ -91,14 +88,12 @@ const testimonials = [
 
 <PortfolioLayout
   title={`${portfolioData.name} - ${portfolioData.title}`}
-  description={portfolioData.description}
   name={portfolioData.name}
 >
   <Navigation />
   <Hero
     name={portfolioData.name}
     title={portfolioData.title}
-    description={portfolioData.description}
     profileImage={portfolioData.profileImage}
   />
 
