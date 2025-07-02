@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Container from "../ui/Container.astro";
+import Button from "../ui/Button.astro";
 
 export interface Props {
   projects: Array<{
@@ -50,7 +51,19 @@ const defaultProjects = [
     githubUrl: "https://github.com/example",
     featured: true,
   },
+    {
+    id: "dashboard",
+    title: "Analytics Dashboard",
+    description:
+      "Comprehensive analytics dashboard for business intelligence with interactive charts and real-time data visualization.",
+    image: "/project-3.jpg",
+    technologies: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/example",
+    featured: true,
+  },
 ];
+
 
 const projectList = projects.length > 0 ? projects : defaultProjects;
 ---
@@ -68,73 +81,45 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
         projectList.map((project, index) => (
 
           <!--จุดนี้เอาไว้แสดงผล เวลา Hover -->
-          <div
-            class={`project-card ${project.featured ? "featured" : ""} ${index === 0 ? "large" : ""}`}
-          >
+          <div class={`project-card ${project.featured ? "featured" : ""} ${index === 0 ? "large" : ""}`}>
 
 
             <!--จุดนี้เป็นจุดที่เอาไวว้ใส่รูปไอคอนเวลา Hover ตั้งแต่จุดนี้*/-->
             <div class="project-image">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width="30"
-                height="30"
-              />
+              <Image src={project.image} alt={project.title} width="30" height="30"/>
+
+
               <div class="project-overlay">
                 <div class="project-links">
+
+
                   {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      class="project-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      
-                      <svg 
-                        width="20"
-                        height="20"
-                        fill="none" 
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        /> 
+                    <a href={project.liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+                      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/> 
                       </svg>
                     </a>
                   )}
+
+
                   {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      class="project-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                    <a href={project.githubUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+                      <svg width="20"height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                       </svg>
                     </a>
                   )}
+
+          
                 </div>
               </div>
             </div>
-             <!--ถึงจุดนี้-->
+            <!--ถึงจุดนี้-->
 
 
-             <!-- จุดนี้เป็นจุดที่เอาไว้ใส่ Content ผ่าน JavaScript เวลาต้องการเปลี่ยนแปลงอะไรเร็ว ๆ ก็จะสามารถแก้ผ่านรับบ CMS ได้ เหมือยจุดอื่น ๆ -->
+            <!-- จุดนี้เป็นจุดที่เอาไว้ใส่ Content ผ่าน JavaScript เวลาต้องการเปลี่ยนแปลงอะไรเร็ว ๆ ก็จะสามารถแก้ผ่านรับบ CMS ได้ เหมือยจุดอื่น ๆ -->
             <div class="project-content">
               <h3 class="project-title">{project.title}</h3>
-              <p class="project-description">{project.description}</p>
-              <!-- จนถึงจุดนีั้ -->
 
 
               <!-- เป็นจุดี่เอาไว้ใส่ Tag ผ่าน JS  -->
@@ -143,8 +128,11 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
                   <span class="tech-tag">{tech}</span>
                 ))}
               </div>
-              <!-- จนถึงจุดนี้ -->
 
+
+              <!-- จนถึงจุดนี้ -->
+              <p class="project-description">{project.description}</p>
+              <!-- จนถึงจุดนีั้ -->
 
             </div>
           </div>
@@ -152,14 +140,16 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
       }
     </div>
 
-
-    <div class="view-all">
-      <a href="/portfolio" class="btn btn-outline">View All Projects</a>
+<div class="view-all">
+    <div>
+      <a href="/portfolio" class="btn-primary">View All Projects</a>
+    </div>
     </div>
   </Container>
 </section>
 
 <style>
+
   .case-study-heading {
     font-size: var(--font-title);
     font-weight: bold;
@@ -174,23 +164,8 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
 
   .projects-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-2xl);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: var(--spacing-between);
-  }
-
-  .project-card {
-    background-color: var(--color-primary);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    position: relative;
-  }
-
-  .project-card.large {
-    grid-row: span 2;
   }
 
   .project-image {
@@ -245,29 +220,36 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
   .project-title {
     font-size: var(--font-description);
     color: var(--color-primary-dark);
-    padding-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
   }
 
   .project-description {
     color: var(--color-primary-dark);
-    padding-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    font-size: var(--font-description);
   }
 
   .project-technologies {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    padding-bottom: var(--spacing-between);
   }
 
   .tech-tag {
-    padding: var(--spacing-xs);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: var(--spacing-xs);
+    padding-right: var(--spacing-xs);
     background-color: var(--color-primary-dark);
     color: var(--color-primary);
     border-radius: var(--border-radius-md);
-    font-size: var(--font-description);
+    font-size: 12px;
   }
 
   .view-all {
-    text-align: center;
+    text-align: start;
+    padding-top: var(--spacing-between);
+    padding-bottom: var(--spacing-between);
   }
 </style>
