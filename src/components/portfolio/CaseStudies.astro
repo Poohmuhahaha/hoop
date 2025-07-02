@@ -81,13 +81,13 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
       {
         projectList.map((project, index) => (
 
-          <!--จุดนี้เอาไว้แสดงผล เวลา Hover -->
+          //จุดนี้เอาไว้แสดงผล เวลา Hover และเป็น Fundtion การแสดงผลของ Cards ตรง Toggle button
           <div class={`project-card ${project.featured ? "featured" : ""} ${index === 0 ? "large" : ""} ${index > 3 ? "hidden-project" : ""}`}
             data-index={index}
           >
 
 
-            <!--จุดนี้เป็นจุดที่เอาไวว้ใส่รูปไอคอนเวลา Hover ตั้งแต่จุดนี้*/-->
+            <!--จุดนี้เป็นจุดที่เอาไวว้ใส่รูปไอคอนเวลา Hover ตั้งแต่จุดนี้-->
             <div class="project-image">
               <Image src={project.image} alt={project.title} width="30" height="30"/> 
 
@@ -151,6 +151,8 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
   </Container>
 </section>
 
+
+<!-- ตรงนี้เป็น Script ที่เอาไว้เปิดปิดว่าจะให้มันแสดงผลยังไง-->
 <script is:inline>
   const btn = document.getElementById('view-all-btn');
   if (btn) {
@@ -162,6 +164,7 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
     });
   }
 </script>
+<!--จนถึงจุดนี้-->
 
 <style>
 

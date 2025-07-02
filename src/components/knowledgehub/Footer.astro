@@ -1,5 +1,5 @@
 ---
-import Container from "./ui/Container.astro";
+import Container from "../ui/Container.astro";
 
 const currentYear = new Date().getFullYear();
 
@@ -22,16 +22,6 @@ const socialLinks = [
             >hyggehome@hyggehome.com</a
           >
         </p>
-
-        <div class="footer-social">
-          {
-            socialLinks.map((link) => (
-              <a href={link.href} class="footer-link" aria-label={link.name}>
-                {link.name}
-              </a>
-            ))
-          }
-        </div>
       </div>
     </div>
   </Container>
@@ -44,19 +34,9 @@ const socialLinks = [
     padding: var(--spacing-md);
   }
 
-  .footer-social {
-    text-decoration: none;
-  }
-
   .footer-link {
     text-decoration: none;
     color: var(--color-primary);
     text-decoration: underline;
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-xl);
   }
 </style>

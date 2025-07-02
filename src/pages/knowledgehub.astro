@@ -1,10 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import Navigation from "../components/knowledgehub/Navigation.astro";
+import HeroSection from "../components/knowledgehub/HeroSection.astro";
+import ArticlesGrid from "../components/knowledgehub/ArticlesGrid.astro";
+import Footer from "../components/knowledgehub/Footer.astro";
 ---
 
 <BaseLayout title="Hoop">
   <Navigation />
+  <HeroSection />
+  <ArticlesGrid />
   <Footer />
 </BaseLayout>
