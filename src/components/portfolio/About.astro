@@ -45,10 +45,6 @@ const {
             {skills.map((skill) => <p class="skill-tag">{skill}</p>)}
           </div>
         </div>
-
-        <div class="about-actions">
-          <a href="/resume.pdf" class="btn-primary" download>Download CV</a>
-        </div>
       </div>
 
       <div class="about-image">
@@ -56,8 +52,13 @@ const {
           <Image src={profileImage} alt={`About ${name}`} class="about-img" width="500" height="700"/>
         </div>
       </div>
+      
     </div>
+            <div class="about-actions">
+          <a href="/resume.pdf" class="btn-primary" download>Download CV</a>
+        </div>
   </Container>
+  </section>
 
   <style>
     .about {
@@ -152,8 +153,12 @@ const {
     }
 
     .about-actions {
-      padding-bottom: 80px;
-      width: 100px;
+      padding-bottom: var(--spacing-between);
+      width: 100%;
+    }
+
+    .btn-primary {
+      width: 100%;
     }
   </style>
-</section>
+
