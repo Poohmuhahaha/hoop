@@ -2,7 +2,6 @@
 import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 import Hero from "../components/portfolio/Hero.astro";
 import CaseStudies from "../components/portfolio/CaseStudies.astro";
-import ClientLogos from "../components/portfolio/ClientLogos.astro";
 import Testimonials from "../components/portfolio/Testimonials.astro";
 import About from "../components/portfolio/About.astro";
 import Contact from "../components/portfolio/Contact.astro";
@@ -37,6 +36,7 @@ const projects = [
     image: "/111.jpg",
     technologies: ["React Native", "Firebase", "TypeScript"],
     liveUrl: "https://example.com",
+    githubUrl: "https://github.com/example", // Added githubUrl to match required type
     featured: true,
   },
   {
@@ -99,8 +99,6 @@ const testimonials = [
 
   <CaseStudies projects={projects} />
 
-  <ClientLogos />
-
   <Testimonials testimonials={testimonials} />
 
   <About
@@ -126,5 +124,4 @@ const testimonials = [
   <Contact
     email={portfolioData.email}
     phone={portfolioData.phone}
-    location={portfolioData.location}
   />

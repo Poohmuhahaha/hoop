@@ -59,14 +59,21 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
   <Container>
     <div class="case-study-header">
       <h2 class="case-study-heading">Case Studies</h2>
-    </div>
 
-    <div class="projects-grid">
+    <!--เป็นจุดที่เอาไว้ Add Grid ทั้งหมดลงไปใน Case stufies section ผ่าน JS โดย CMS -->
+    <div class="projects-grid"> 
+      
+      <!-- เริ่มทำการ Loop Content -->
       {
         projectList.map((project, index) => (
+
+          <!--จุดนี้เอาไว้แสดงผล เวลา Hover -->
           <div
             class={`project-card ${project.featured ? "featured" : ""} ${index === 0 ? "large" : ""}`}
           >
+
+
+            <!--จุดนี้เป็นจุดที่เอาไวว้ใส่รูปไอคอนเวลา Hover ตั้งแต่จุดนี้*/-->
             <div class="project-image">
               <Image
                 src={project.image}
@@ -83,10 +90,11 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <svg
+                      
+                      <svg 
                         width="20"
                         height="20"
-                        fill="none"
+                        fill="none" 
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -95,7 +103,7 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
                           stroke-linejoin="round"
                           stroke-width="2"
                           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
+                        /> 
                       </svg>
                     </a>
                   )}
@@ -119,21 +127,31 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
                 </div>
               </div>
             </div>
+             <!--ถึงจุดนี้-->
 
+
+             <!-- จุดนี้เป็นจุดที่เอาไว้ใส่ Content ผ่าน JavaScript เวลาต้องการเปลี่ยนแปลงอะไรเร็ว ๆ ก็จะสามารถแก้ผ่านรับบ CMS ได้ เหมือยจุดอื่น ๆ -->
             <div class="project-content">
               <h3 class="project-title">{project.title}</h3>
               <p class="project-description">{project.description}</p>
+              <!-- จนถึงจุดนีั้ -->
 
+
+              <!-- เป็นจุดี่เอาไว้ใส่ Tag ผ่าน JS  -->
               <div class="project-technologies">
                 {project.technologies.map((tech) => (
                   <span class="tech-tag">{tech}</span>
                 ))}
               </div>
+              <!-- จนถึงจุดนี้ -->
+
+
             </div>
           </div>
         ))
       }
     </div>
+
 
     <div class="view-all">
       <a href="/portfolio" class="btn btn-outline">View All Projects</a>
@@ -179,6 +197,7 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
     position: relative;
     overflow: hidden;
     aspect-ratio: 16/10;
+    border-radius: var(--border-radius-md);
   }
 
   .project-image img {
