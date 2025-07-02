@@ -74,19 +74,22 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
       <h2 class="case-study-heading">Case Studies</h2>
 
     <!--เป็นจุดที่เอาไว้ Add Grid ทั้งหมดลงไปใน Case stufies section ผ่าน JS โดย CMS -->
-    <div class="projects-grid"> 
+    <div class="projects-grid" id="projects-grid"> 
+      
       
       <!-- เริ่มทำการ Loop Content -->
       {
         projectList.map((project, index) => (
 
           <!--จุดนี้เอาไว้แสดงผล เวลา Hover -->
-          <div class={`project-card ${project.featured ? "featured" : ""} ${index === 0 ? "large" : ""}`}>
+          <div class={`project-card ${project.featured ? "featured" : ""} ${index === 0 ? "large" : ""} ${index > 3 ? "hidden-project" : ""}`}
+            data-index={index}
+          >
 
 
             <!--จุดนี้เป็นจุดที่เอาไวว้ใส่รูปไอคอนเวลา Hover ตั้งแต่จุดนี้*/-->
             <div class="project-image">
-              <Image src={project.image} alt={project.title} width="30" height="30"/>
+              <Image src={project.image} alt={project.title} width="30" height="30"/> 
 
 
               <div class="project-overlay">
@@ -140,13 +143,25 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
       }
     </div>
 
-<div class="view-all">
-    <div>
-      <a href="/portfolio" class="btn-primary">View All Projects</a>
-    </div>
+    <div class="view-all">
+      <div>
+        <button class="btn-primary" id="view-all-btn" type="button">View All Projects</button>
+      </div>
     </div>
   </Container>
 </section>
+
+<script is:inline>
+  const btn = document.getElementById('view-all-btn');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.hidden-project').forEach(el => {
+        el.classList.remove('hidden-project');
+      });
+      btn.style.display = 'none';
+    });
+  }
+</script>
 
 <style>
 
@@ -255,5 +270,9 @@ const projectList = projects.length > 0 ? projects : defaultProjects;
 
   .btn-primary {
     width: 100%;
+  }
+
+  .hidden-project {
+    display: none !important;
   }
 </style>
