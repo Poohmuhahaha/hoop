@@ -24,7 +24,11 @@ const {
 <section class="about section">
   <Container>
    <h2 class="section-title">About Me</h2>
+
+    <!-- จุดนี้เป็จุดที่รวบรวมข้อมมูลทั้ง ซ้าย และ ขวา -->
     <div class="about-content">
+
+      <!-- ตรงนี้เป็นจุดที่รวม Content ที่เป็น Info -->
       <div class="about-text">
         <p class="bio-text">{bio}</p>
         <div class="about-details">
@@ -32,19 +36,23 @@ const {
             <h4 class="detail-label">Experience</h4>
           </div>
 
+          <!-- เป้นในส่วนของ Cards (Expreience, Education) -->
           <div class="detail-item">
             <h4 class="detail-label">Education</h4>
             <p class="detail-value">{education}</p>
           </div>
         </div>
 
-        <!--Skill section -->
+        <!--Skill section เอาไว้ใส่ว่า มีสกิลอะไรบ้าง -->
         <div class="skills-section">
           <h3 class="skills-title">Technical Skills</h3>
+
+          <!-- เอาไว้ Loop ในส่วนของ Tag -->
           <div class="skills-grid">
             {skills.map((skill) => <p class="skill-tag">{skill}</p>)}
           </div>
         </div>
+
       </div>
 
       <div class="about-image">
@@ -68,7 +76,6 @@ const {
     .about-content {
       display: flex;
       gap: var(--spacing-between);
-      align-items: center;
     }
 
     .section-title {
