@@ -2,7 +2,6 @@
 import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 import Hero from "../components/portfolio/Hero.astro";
 import CaseStudies from "../components/portfolio/CaseStudies.astro";
-import Testimonials from "../components/portfolio/Testimonials.astro";
 import About from "../components/portfolio/About.astro";
 import Contact from "../components/portfolio/Contact.astro";
 import Navigation from "../components/Navigation.astro";
@@ -109,8 +108,6 @@ const testimonials = [
   />
 
   <CaseStudies projects={projects} />
-
-  <Testimonials testimonials={testimonials} />
 
   <About
     name={portfolioData.name}

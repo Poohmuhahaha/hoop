@@ -48,21 +48,13 @@ const {
         </div>
 
         <div class="about-actions">
-          <a href="/resume.pdf" class="btn btn-primary" download
-            >Download Resume</a
-          >
+          <a href="/resume.pdf" class="btn-primary" download>Download CV</a>
         </div>
       </div>
 
       <div class="about-image">
         <div class="image-container">
-          <Image
-            src={profileImage}
-            alt={`About ${name}`}
-            class="about-img"
-            width="500"
-            height="700"
-          />
+          <Image src={profileImage} alt={`About ${name}`} class="about-img" width="500" height="700"/>
         </div>
       </div>
     </div>
@@ -135,8 +127,6 @@ const {
       font-size: var(--font-description);
       width: 180px;
       height: 70px;
-      justify-content: center;
-      align-items: center;
     }
 
     .about-image {
