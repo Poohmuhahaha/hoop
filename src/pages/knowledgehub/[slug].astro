@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import KnowledgeHubPost from '../../layouts/KnowledgeHubPost.astro';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('knowledgehub');
+  return posts.map((post) => ({
+    params: { slug: post.id }, // slug เป็น "content2.md"
+    props: post,
+  }));
+}
+type Props = CollectionEntry<'knowledgehub'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<KnowledgeHubPost {...post}>
+  <Content />
+</KnowledgeHubPost>
