@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Container from "../ui/Container.astro";
 
-export interface Props {
+interface Props {
   name: string;
   bio: string;
   skills: string[];
@@ -106,7 +106,7 @@ const {
 
     .detail-item {
       padding: var(--spacing-button);
-      background-color: var(--color-background);
+      background-color: var(--color-primary-dark);
       border-radius: var(--border-radius-md);
       align-items: center;
       font-size: var(--font-description);

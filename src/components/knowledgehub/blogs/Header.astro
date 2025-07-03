@@ -1,0 +1,191 @@
+---
+// src/components/BlogHeader.astro
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  publishedAt?: string;
+  author?: string;
+  tags?: string[];
+}
+
+const { title, description, image, publishedAt, author, tags } = Astro.props;
+
+// Format date
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('th-TH', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<div class="blog-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="separator">/</span>
+      <a href="/articles">Articles</a>
+      <span class="separator">/</span>
+      <span class="current">Philosophy</span>
+    </div>
+    
+    <div class="blog-hero">
+      <div class="blog-content">
+        <h1 class="blog-title">{title}</h1>
+        
+        {description && (
+          <p class="blog-description">{description}</p>
+        )}
+        
+        <div class="blog-meta">
+          {author && (
+            <span class="author">By {author}</span>
+          )}
+          {publishedAt && (
+            <span class="date">{formatDate(publishedAt)}</span>
+          )}
+        </div>
+        
+        {tags && tags.length > 0 && (
+          <div class="tags">
+            {tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+      
+      {image && (
+        <div class="blog-image">
+          <img src={image} alt={title} />
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .blog-header {
+    background-color: var(--color-primary);
+    padding: var(--spacing-sm) 0 var(--spacing-md);
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-sm);
+    font-size: 14px;
+  }
+
+  .breadcrumb a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-accent);
+  }
+
+  .separator {
+    color: var(--color-primary-light);
+  }
+
+  .current {
+    color: var(--color-primary-light);
+  }
+
+  .blog-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .blog-title {
+    font-size: var(--font-title);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+  }
+
+  .blog-description {
+    font-size: var(--font-description);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.8;
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: 16px;
+  }
+
+  .author, .date {
+    color: var(--color-primary-dark);
+    opacity: 0.7;
+  }
+
+  .tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .blog-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+  }
+
+  .blog-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .blog-image:hover img {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .blog-hero {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-sm);
+    }
+
+    .blog-title {
+      font-size: 32px;
+    }
+
+    .blog-description {
+      font-size: 18px;
+    }
+
+    .blog-meta {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .blog-image img {
+      height: 250px;
+    }
+  }
+</style>

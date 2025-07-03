@@ -1,0 +1,73 @@
+---
+// src/pages/blog/[...slug].astro
+
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogHeader from '../../components/knowledgehub/blogs/Header.astro';
+import BlogContent from '../../components/knowledgehub/blogs/Content.astro';
+import Navigation from '../../components/ui/Navigation.astro';
+
+const { slug } = Astro.params;
+
+export async function getStaticPaths() {
+  // ในการใช้งานจริง คุณสามารถดึงข้อมูลจาก CMS หรือ Markdown files
+  return [
+    { params: { slug: 'embracing-the-sublime-danish-philosophy' },
+      props: {
+        title: 'Embracing the Sublime: A Danish Philosophical Journey Through Nature\'s Vastness',
+        description: 'A profound exploration of Danish philosophy and the concept of the sublime in nature\'s embrace.',
+        image: '/111.jpg',
+        publishedAt: '2024-12-15',
+        author: 'Philosophy Thomas',
+        tags: ['Philosophy', 'Danish Culture', 'Nature', 'Sublime'],
+        content: `
+          <p>In a world often characterized by the immediate and the routine, the concept of the sublime offers a profound antidote—a journey into the vastness of nature that transcends ordinary experience. This philosophical exploration delves into Danish thought and the unique relationship it maintains with the natural world.</p>
+          
+          <h2>What is Hugge?</h2>
+          
+          <p>The notion of "hugge" encompasses more than just hygge. It is an experiencing of the sublime together, where the Danish philosophy of sharing places is rooted in the very essence of being. The gifts of Men's Kirke, where the clarity of the subject dips dramatically into the Baltic Sea, or the endless expanse of the beach itself make known as a curving line of light through the interior of the heart.</p>
+          
+          <blockquote>
+            <p>"The sublime is not just about experiencing nature's majesty, but about finding our place within the vast tapestry of existence."</p>
+          </blockquote>
+          
+          <h2>Why is Hugge So Huge?</h2>
+          
+          <p>The allure of the "hugge" lies in its ability to turn away from what is immediate and the Danish culture, which places great emphasis on comfort and the beauty of everyday life. This philosophy reaches beyond the conventional living for our souls and spirits. The "hugge" is overwhelming because it brings us comfort the thesis of our understanding as Kierkegaard might suggest, the confrontation can lead to a kind of transformation: the fulfillment of the life that makes us become aware of our own limitations.</p>
+          
+          <h2>What Are the Benefits of Hugge?</h2>
+          
+          <p>Embracing the "hugge" offers profound benefits for the mind and soul. In the Danish philosophical tradition, engaging with nature's vastness and introspection offers a unique path to understanding. The concept involves not just observing external beauty, but also dissolving the ego, helping us to let go of petty concerns and trivial preoccupations. This experience of the sublime can lead to a deeper capacity for gratitude, connection, and meaning in our lives.</p>
+          
+          <p>Moreover, the "hugge" teaches humility: the enduring presence of mountains and oceans reminds us of our place in the cosmos. It provides a form of therapy for our modern condition, offering respite from the constant stream of minor concerns that occupy our days. In this embrace of the sublime, we find not only peace but also a deepened connection to the eternal concepts that give life meaning.</p>
+          
+          <h2>The Sublime as a Way of Being</h2>
+          
+          <p>The Danish philosophical journey through nature reveals that "hugge" far more than a momentary pleasure or aesthetic experience. It represents a way of being—a life of engaging with the immense, we can find a wellspring of inner harmony, and inspiration that nurtures long-chained Danish thoughts. Whether through the windswept cliffs of Jutland or the tranquil scenes of our minds, the sublime offers a natural antidote to the pressures of modern living.</p>
+          
+          <p>In our increasingly urbanized world, the call of the sublime becomes more urgent. It reminds us that there is something beyond the immediate, something that connects us to the eternal and the infinite. Through this Danish lens, we discover that the sublime is not just a philosophical concept—it is a pathway to a more meaningful existence.</p>
+        `
+      }
+    }
+  ];
+}
+
+const { title, description, image, publishedAt, author, tags, content } = Astro.props;
+---
+
+<BlogLayout title={title} description={description}>
+  <Navigation />
+  <BlogHeader 
+    title={title}
+    description={description}
+    image={image}
+    publishedAt={publishedAt}
+    author={author}
+    tags={tags}
+  />
+  
+  <BlogContent content={content} />
+</BlogLayout>
+
+<style>
+  /* Additional page-specific styles can be added here */
+</style>

@@ -1,0 +1,298 @@
+---
+// src/components/Navigation.astro
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath } = Astro.props;
+
+const menuItems = [
+  { name: 'Home', path: '/', icon: '🏠' },
+  { name: 'Articles', path: '/articles', icon: '📚' },
+  { name: 'Philosophy', path: '/philosophy', icon: '🤔' },
+  { name: 'About', path: '/about', icon: '👤' },
+  { name: 'Contact', path: '/contact', icon: '📧' }
+];
+
+const isActive = (path: string) => currentPath === path;
+---
+
+<nav class="navigation">
+  <div class="nav-brand">
+    <a href="/" class="brand-link">
+      <span class="brand-icon">🍃</span>
+      <span class="brand-text">Hugge Thoughts</span>
+    </a>
+  </div>
+
+  <div class="nav-menu" id="navMenu">
+    <ul class="nav-list">
+      {menuItems.map((item) => (
+        <li class="nav-item">
+          <a 
+            href={item.path} 
+            class={`nav-link ${isActive(item.path) ? 'active' : ''}`}
+            aria-current={isActive(item.path) ? 'page' : undefined}
+          >
+            <span class="nav-icon">{item.icon}</span>
+            <span class="nav-text">{item.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="nav-actions">
+    <button class="search-btn" aria-label="Search">
+      <span class="search-icon">🔍</span>
+    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+  });
+</script>
+
+<style>
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .brand-link:hover {
+    transform: scale(1.05);
+  }
+
+  .brand-icon {
+    font-size: 28px;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .nav-link:hover::before {
+    left: 100%;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .nav-link.active {
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(37, 20, 3, 0.3);
+  }
+
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .search-btn {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: var(--color-primary-dark);
+  }
+
+  .search-btn:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+
+  .search-icon {
+    font-size: 20px;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary-dark);
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--color-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      padding: var(--spacing-sm);
+      gap: 0;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-link:last-child {
+      border-bottom: none;
+    }
+
+    .brand-text {
+      display: none;
+    }
+
+    .nav-icon {
+      display: none;
+    }
+
+    .nav-text {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navigation {
+      padding: 20px 0;
+    }
+
+    .brand-link {
+      font-size: 20px;
+    }
+
+    .brand-icon {
+      font-size: 24px;
+    }
+  }
+</style>
