@@ -1,5 +1,5 @@
 ---
-import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/cv/Hero.astro";
 import CaseStudies from "../components/cv/CaseStudies.astro";
 import About from "../components/cv/About.astro";
@@ -105,9 +105,8 @@ const projects = [
 ];
 ---
 
-<PortfolioLayout
+<BaseLayout
   title={`${portfolioData.name} - ${portfolioData.title}`}
-  name={portfolioData.name}
 >
 
 
@@ -153,4 +152,4 @@ const projects = [
   <Footer />
 
 
-</PortfolioLayout>
+</BaseLayout>
