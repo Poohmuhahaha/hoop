@@ -1,4 +1,5 @@
 ---
+import "../../styles/global.css";
 import { Image } from "astro:assets";
 import Container from "../ui/Container.astro";
 
@@ -11,90 +12,31 @@ export interface Props {
 const { name, title, profileImage } = Astro.props;
 ---
 
-<section class="hero">
-
+<section class="hero bg-[var(--color-primary)] py-[var(--spacing-3xl)] pb-[var(--spacing-between)]">
   <Container>
-    <h2 class="hero-heading">Available for hire!</h2>
-    <div class="hero-all-content">
-      
-      <div class="hero-image">
-          <Image
-            src={profileImage}
-            alt={name}
-            class="profile-img"
-            width="100"
-            height="100"
-          />
+    <h2 class="hero-heading text-[var(--color-primary-dark)] font-bold pt-[40px] pb-[40px] text-[var(--font-title)] text-green-600">
+      Available for hire!
+    </h2>
+    <div class="hero-all-content grid grid-cols-2 gap-[var(--spacing-between)] h-[431px]">
+      <div class="hero-image flex justify-center">
+        <Image
+          src={profileImage}
+          alt={name}
+          class="profile-img w-full h-full rounded-[var(--border-radius-md)] object-cover"
+          width="100"
+          height="100"
+        />
       </div>
-
-      <div class="hero-text-and-buttons">
-        <h1 class="hero-title">
+      <div class="hero-text-and-buttons flex flex-col justify-between">
+        <h1 class="hero-title text-[var(--color-primary-dark)] text-[var(--font-title)] leading-none pt-[var(--spacing-xs)] pb-5">
           Hi, I'm <span class="name">{name}</span><br />
           {title}
         </h1>
-
-        <div class="hero-actions">
+        <div class="hero-actions flex gap-[var(--spacing-sm)] pt-[var(--spacing-md)]">
           <a href="#portfolio" class="btn-primary">View My Work</a>
           <a href="#contact" class="btn-primary">Get In Touch</a>
         </div>
-        
       </div>
     </div>
   </Container>
 </section>
-<style>
-  .hero-heading {
-    font-size: var(--font-title);
-    font-weight: bold;
-    color: var(--color-primary-dark);
-    padding-top: 40px;
-    padding-bottom: 40px;
-    color: green;
-  }
-
-  .hero {
-    padding: var(--spacing-3xl) 0;
-    background: var(--color-primary);
-    padding-bottom: var(--spacing-between);
-
-  }
-
-  .hero-text-and-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .hero-all-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-between);
-    height: 431px;
-  }
-
-  .hero-title {
-    font-size: var(--font-title);
-    line-height: 1;
-    color: var(--color-primary-dark);
-    padding-top: var(--spacing-xs);
-    padding-bottom: 20px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--spacing-sm);
-    padding-top: var(--spacing-md);
-  }
-
-  .hero-image {
-    display: flex;
-    justify-content: center;
-  }
-
-  .profile-img {
-    width: 100%;
-    height: 100%;
-    border-radius: var(--border-radius-md);
-    object-fit: cover;
-  }
-</style>
