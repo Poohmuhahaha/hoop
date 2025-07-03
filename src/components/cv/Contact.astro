@@ -51,7 +51,7 @@ const links = socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
 
             <!-- ตรงนี้จะเป็น Info ของ Email -->
             <div class="contact-text">
-              <h4>Email</h4>
+              <h3>Email</h3>
               <a href={`mailto:${email}`} class="contact-link">{email}</a>
             </div>
           </div>
@@ -66,7 +66,7 @@ const links = socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
             <!-- ตรงนี้จะเป็น Info ของ Phone -->
             </div>
             <div class="contact-text">
-              <h4>Phone</h4>
+              <h3>Phone</h3>
               <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} class="contact-link">{phone}</a>
             </div>
           </div>
@@ -82,7 +82,7 @@ const links = socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
             <!-- ตรงนี้จะเป็น Info ของ Location -->
             </div>
             <div class="contact-text">
-              <h4>Location</h4>
+              <h3>Location</h3>
               <p>{location}</p>
             </div>
           </div>
@@ -91,7 +91,7 @@ const links = socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
         
         <!-- ตั้งแต่จุนี้จะเป็นในส่วนของ Icon my social media -->
         <div class="social-links">
-          <h4 class="social-title">Follow Me</h4>
+          <h3 class="social-title">Follow Me</h3>
 
           <!-- ตรงนี้จะเป็น Grid ของ Social Media -->
           <div class="social-grid">
@@ -228,7 +228,7 @@ const links = socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
     justify-content: center;
   }
 
-  .contact-text h4 {
+  .contact-text h3 {
     font-size: var(--font-description);
     font-weight: bold;
     color: var(--color-primary-dark);
