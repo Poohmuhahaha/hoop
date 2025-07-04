@@ -1,10 +1,10 @@
 คือตอนนี้อ่ะ มันมีโครงสร้างประมาณนี้ก็ตือ
 
-์์Nav ที่่ประกอบด้วย CV Home(indev) KnowledgeHub อะไรทำนองนี้
+Nav ที่่ประกอบด้วย CV Home(indev) KnowledgeHub อะไรทำนองนี้
 
 # Files ที่เกี่ยวข้องกันในแต่ละส่วน
 
-##สิ่งที่เกี่ยวกับ Knowledge Hub
+## สิ่งที่เกี่ยวกับ Knowledge Hub
 1. Content Collection
 src/content/knowledgehub/
 โฟลเดอร์นี้เก็บไฟล์ Markdown (.md) สำหรับแต่ละโพสต์ของ Knowledge Hub
@@ -32,7 +32,7 @@ Footer ที่แสดงด้านล่างทุกหน้า
 README.md
 มีการอธิบายเกี่ยวกับ Knowledge Hub
 สรุป:
-
+---
 content.config.ts
 โฟลเดอร์ content/knowledgehub/
 index.astro
@@ -41,6 +41,7 @@ KnowledgeHubPost.astro
 Navigation.astro, Footer.astro
 README.md (มีอธิบาย)
 ถ้าต้องการรายละเอียดไฟล์ไหนเพิ่มเติม แจ้งได้เลยครับ!
+---
 
 
 ## รายการไฟล์/โค้ดที่เกี่ยวข้องกับหน้า index หรือหน้า / (Home)
@@ -59,12 +60,14 @@ README.md
 
 มีอธิบายโครงสร้างและหน้าต่างๆ ของโปรเจกต์ รวมถึงหน้า index
 สรุป:
-
+---
 src/pages/index.astro
 src/components/ui/Navigation.astro
 src/components/ui/Footer.astro
 README.md (มีอธิบายโครงสร้างหน้า index)
 ถ้าต้องการดูรายละเอียดไฟล์ index.astro หรืออยากให้ช่วยปรับแต่ง แจ้งได้เลยครับ!
+---
+
 
 ## รายการไฟล์/โค้ดที่เกี่ยวข้องกับหน้า CV
 
@@ -83,9 +86,9 @@ README.md (มีอธิบายโครงสร้างหน้า index
    - มีอธิบายโครงสร้างและหน้าต่างๆ ของโปรเจกต์ รวมถึงหน้า CV
 
 ---
-
 **สรุป:**  
 - src/pages/cv.astro  
 - src/components/ui/Navigation.astro  
 - src/components/ui/Footer.astro  
 - README.md (มีอธิบายโครงสร้างหน้า CV)
+---
