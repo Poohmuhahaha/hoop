@@ -1,10 +1,10 @@
 คือตอนนี้อ่ะ มันมีโครงสร้างประมาณนี้ก็ตือ
 
-์์Nav ที่่ประกอบด้วย CV Home(indev) KnowledgeHub อะไรทำนองนี้
+Nav ที่่ประกอบด้วย CV Home(indev) KnowledgeHub อะไรทำนองนี้
 
 # Files ที่เกี่ยวข้องกันในแต่ละส่วน
 
-##สิ่งที่เกี่ยวกับ Knowledge Hub
+## สิ่งที่เกี่ยวกับ Knowledge Hub
 1. Content Collection
 src/content/knowledgehub/
 โฟลเดอร์นี้เก็บไฟล์ Markdown (.md) สำหรับแต่ละโพสต์ของ Knowledge Hub
