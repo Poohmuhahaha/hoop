@@ -5,68 +5,79 @@ import Footer from '../components/ui/Footer.astro';
 import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'knowledgehub'>;
-const { title, pubDate, updatedDate, heroImage } = (Astro.props as Props).data;
+const { title, pubDate, updatedDate, heroImage, description } = (Astro.props as Props).data;
 ---
 
 <html lang="en">
-	<head>
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-
-	<body>
-		<Navigation />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <style>
+      body {
+        background: #f9f4e1;
+        color: #251403;
+        font-family: 'Inter', sans-serif;
+      }
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        padding: 2.5rem 2rem;
+      }
+      .hero-image {
+        width: 100%;
+        margin-bottom: 2rem;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      }
+      .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      .desc {
+        color: #926c46;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+      }
+      .date {
+        text-align: center;
+        color: #bfa77a;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+      }
+      .content {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #251403;
+      }
+      @media (max-width: 600px) {
+        .container { padding: 1rem; }
+        .title { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+    <div class="container">
+      {heroImage && (
+        <div class="hero-image">
+          <Image src={heroImage} width={800} height={400} alt={title} />
+        </div>
+      )}
+      <div class="title">{title}</div>
+      {description && <div class="desc">{description}</div>}
+      <div class="date">
+        {pubDate && `Published: ${new Date(pubDate).toLocaleDateString()}`}
+        {updatedDate && <span> | Updated: {new Date(updatedDate).toLocaleDateString()}</span>}
+      </div>
+      <div class="content">
+        <slot />
+      </div>
+    </div>
+    <Footer />
+  </body>
 </html>
