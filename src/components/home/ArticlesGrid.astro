@@ -1,7 +1,6 @@
 ---
 import Container from "../ui/Container.astro";
 import ArticleCard from "./ArticleCard.astro";
-import Button from "../ui/Button.astro";
 
 const articles = [
   {
@@ -77,8 +76,6 @@ const articles = [
 
     <div class="articles-grid">
       {articles.map((article) => <ArticleCard {...article} />)}
-
-      <!-- View More Card -->
     </div>
   </Container>
 </section>

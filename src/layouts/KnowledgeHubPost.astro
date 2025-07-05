@@ -1,11 +1,13 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import Navigation from '../components/ui/Navigation.astro';
-import Footer from '../components/ui/Footer.astro';
-import { Image } from 'astro:assets';
+import type { CollectionEntry } from "astro:content";
+import Navigation from "../components/ui/Navigation.astro";
+import Footer from "../components/ui/Footer.astro";
+import { Image } from "astro:assets";
 
-type Props = CollectionEntry<'knowledgehub'>;
-const { title, pubDate, updatedDate, heroImage, description } = (Astro.props as Props).data;
+type Props = CollectionEntry<"knowledgehub">;
+const { title, pubDate, updatedDate, heroImage, description } = (
+  Astro.props as Props
+).data;
 ---
 
 <html lang="en">
@@ -14,14 +16,14 @@ const { title, pubDate, updatedDate, heroImage, description } = (Astro.props as 
       body {
         background: #f9f4e1;
         color: #251403;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
       }
       .container {
         max-width: 800px;
         margin: 40px auto;
         background: #fff;
         border-radius: 18px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         padding: 2.5rem 2rem;
       }
       .hero-image {
@@ -29,7 +31,7 @@ const { title, pubDate, updatedDate, heroImage, description } = (Astro.props as 
         margin-bottom: 2rem;
         border-radius: 14px;
         overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
       }
       .title {
         font-size: 2.5rem;
@@ -55,24 +57,37 @@ const { title, pubDate, updatedDate, heroImage, description } = (Astro.props as 
         color: #251403;
       }
       @media (max-width: 600px) {
-        .container { padding: 1rem; }
-        .title { font-size: 2rem; }
+        .container {
+          padding: 1rem;
+        }
+        .title {
+          font-size: 2rem;
+        }
       }
     </style>
   </head>
   <body>
     <Navigation />
     <div class="container">
-      {heroImage && (
-        <div class="hero-image">
-          <Image src={heroImage} width={800} height={400} alt={title} />
-        </div>
-      )}
+      {
+        heroImage && (
+          <div class="hero-image">
+            <Image src={heroImage} width={800} height={400} alt={title} />
+          </div>
+        )
+      }
       <div class="title">{title}</div>
       {description && <div class="desc">{description}</div>}
       <div class="date">
         {pubDate && `Published: ${new Date(pubDate).toLocaleDateString()}`}
-        {updatedDate && <span> | Updated: {new Date(updatedDate).toLocaleDateString()}</span>}
+        {
+          updatedDate && (
+            <span>
+              {" "}
+              | Updated: {new Date(updatedDate).toLocaleDateString()}
+            </span>
+          )
+        }
       </div>
       <div class="content">
         <slot />

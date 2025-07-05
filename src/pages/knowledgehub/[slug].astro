@@ -1,25 +1,25 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'; // นำเข้า type และฟังก์ชันสำหรับจัดการ content collection
-import KnowledgeHubPost from '../../layouts/KnowledgeHubPost.astro'; // นำเข้า layout สำหรับ KnowledgeHubPost
-import { render } from 'astro:content'; // นำเข้าฟังก์ชัน render สำหรับ content
-import Navigation from '../../components/ui/Navigation.astro';
-import Footer from '../../components/ui/Footer.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+import KnowledgeHubPost from "../../layouts/KnowledgeHubPost.astro";
+import { render } from "astro:content";
+import Navigation from "../../components/ui/Navigation.astro";
+import Footer from "../../components/ui/Footer.astro";
 
-export async function getStaticPaths() { // ฟังก์ชันสำหรับสร้าง static paths
-  const posts = await getCollection('knowledgehub'); // ดึงข้อมูลทั้งหมดจาก collection 'knowledgehub'
-  return posts.map((post) => ({ // สร้าง array ของ path สำหรับแต่ละ post
-    params: { slug: post.id }, // กำหนด slug ให้เป็น id ของ post เช่น "content2.md"
-    props: post, // ส่งข้อมูล post ไปเป็น props
+export async function getStaticPaths() {
+  const posts = await getCollection("knowledgehub");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
   }));
 }
-type Props = CollectionEntry<'knowledgehub'>; // กำหนด type Props เป็น CollectionEntry ของ 'knowledgehub'
+type Props = CollectionEntry<"knowledgehub">;
 
-const post = Astro.props; // รับ props ที่ส่งเข้ามา
-const { Content } = await render(post); // render content ของ post และ destructure เอา Content ออกมา
+const post = Astro.props;
+const { Content } = await render(post);
 ---
 
-<KnowledgeHubPost {...post}> {/* ใช้ layout KnowledgeHubPost และส่ง props ทั้งหมดเข้าไป */}
+<KnowledgeHubPost {...post}>
   <Navigation />
-  <Content /> {/* แสดงเนื้อหาของ post */}
+  <Content />
   <Footer />
 </KnowledgeHubPost>
