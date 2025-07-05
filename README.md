@@ -91,7 +91,3 @@ README.md (มีอธิบายโครงสร้างหน้า index
 - src/components/ui/Navigation.astro  
 - src/components/ui/Footer.astro  
 - README.md (มีอธิบายโครงสร้างหน้า CV)
-<<<<<<< HEAD
----
-=======
->>>>>>> 0423eb59838d36275ea51954a8c9301dae240b3f

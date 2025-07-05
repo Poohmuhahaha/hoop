@@ -2,6 +2,8 @@
 import { type CollectionEntry, getCollection } from 'astro:content'; // นำเข้า type และฟังก์ชันสำหรับจัดการ content collection
 import KnowledgeHubPost from '../../layouts/KnowledgeHubPost.astro'; // นำเข้า layout สำหรับ KnowledgeHubPost
 import { render } from 'astro:content'; // นำเข้าฟังก์ชัน render สำหรับ content
+import Navigation from '../../components/ui/Navigation.astro';
+import Footer from '../../components/ui/Footer.astro';
 
 export async function getStaticPaths() { // ฟังก์ชันสำหรับสร้าง static paths
   const posts = await getCollection('knowledgehub'); // ดึงข้อมูลทั้งหมดจาก collection 'knowledgehub'
@@ -17,5 +19,7 @@ const { Content } = await render(post); // render content ของ post แล�
 ---
 
 <KnowledgeHubPost {...post}> {/* ใช้ layout KnowledgeHubPost และส่ง props ทั้งหมดเข้าไป */}
+  <Navigation />
   <Content /> {/* แสดงเนื้อหาของ post */}
+  <Footer />
 </KnowledgeHubPost>

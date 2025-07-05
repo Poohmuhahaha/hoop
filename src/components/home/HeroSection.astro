@@ -6,7 +6,6 @@ import { Image } from "astro:assets";
 
 <section class="hero">
   <Container>
-    <h2 class="hero-heading">Curriculum Vitae (CV)</h2>
     <div class="hero-content">
       <!-- Featured Image -->
       <div class="hero-image">
@@ -54,6 +53,7 @@ import { Image } from "astro:assets";
     grid-template-columns: 2fr 1fr;
     gap: var(--spacing-between);
     align-items: center;
+    padding-top: var(--spacing-between);
   }
 
   .hero-text {
@@ -79,6 +79,7 @@ import { Image } from "astro:assets";
 
   .hero-image {
     position: relative;
+    height: 424px;
   }
 
   .hero-img {
