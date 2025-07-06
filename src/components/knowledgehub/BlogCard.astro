@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
+
+const { post } = Astro.props;
+---
+
+<div class="card col-span-4">
+  <div class="card">
+    <div class="image-container">
+      {post.data.heroImage && (
+        <Image
+          width="720"
+          height="200"
+          src={post.data.heroImage}
+          alt={post.data.title}
+          class="image"
+        />
+      )}
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <h2 class="title">{post.data.title}</h2>
+        <p class="date">
+          {post.data.pubDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        })}
+        </p>
+        <p class="description text-[16px]">
+            {post.data.description}
+            </p>
+            </div>
+            <a href={`/knowledgehub/${post.id}`} class="card-link">
+        <Button class="button">Read more</Button>
+        </a>
+        </div>
+  </div>
+</div>
+
+<style>
+
+
+  .title {
+    color: var(--color-primary-dark);
+    font-size: var(--font-description);
+    font-weight: bold;
+  }
+  .date {
+    padding-bottom: 20px;
+  }
+  .card-link {
+    width: 178px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+  }
+
+  .description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: space-between;
+    height: 300px;
+
+  } 
+
+  .gap-content {
+    gap: var(--spacing-between);
+  }
+  
+  .image {
+    border-radius: var(--border-radius-md);
+  }
+
+
+</style>
