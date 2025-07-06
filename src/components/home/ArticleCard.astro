@@ -25,7 +25,7 @@ const { title, excerpt, image, href } = Astro.props;
   </div>
 
   <div class="article-content">
-    <div>
+    <div class="content">
       <h3 class="article-title">{title}</h3>
       <p class="article-excerpt">{excerpt}</p>
     </div>
@@ -36,6 +36,10 @@ const { title, excerpt, image, href } = Astro.props;
 </Card>
 
 <style>
+  .content {
+    padding-bottom: var(--spacing-between);
+  }
+
   .article-card {
     display: flex;
     flex-direction: column;
@@ -47,11 +51,11 @@ const { title, excerpt, image, href } = Astro.props;
   }
 
   .article-content {
-    height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--color-primary);
+    
   }
 
   .article-title {
@@ -62,7 +66,13 @@ const { title, excerpt, image, href } = Astro.props;
   }
 
   .article-excerpt {
+    height: 80px;
     color: var(--color-primary-dark);
     font-size: 16px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
+
 </style>

@@ -23,44 +23,44 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 <section class="bg-[#F9F4E1]">
   <BaseLayout>
     <Container>
-      <h1 class="pyChaiMaiDai text-[40px]">Knowledge Hub</h1>
+      <h1 class="heading text-[40px]">Knowledge Hub</h1>
 
       {
         posts.length > 0 ? (
-          <div class="gap-content grid grid-cols-4 grid-rows-2">
+          <div class="gap-content grid grid-cols-12 grid-rows-2">
             {posts.map((post) => (
-              <div class="col-span-2">
+              <div class="col-span-4">
                 <div class="card">
-                  <a href={`/knowledgehub/${post.id}`} class="card-link">
-                    {post.data.heroImage && (
-                      <Image
-                        width="720"
-                        height="200"
-                        src={post.data.heroImage}
-                        alt={post.data.title}
-                        class="rounded-[16px]"
-                      />
-                    )}
+                  <div class="image-container">
+                  {post.data.heroImage && (
+                    <Image
+                    width="720"
+                    height="200"
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="image"
+                    />
+                  )}
+                  </div>
 
-                    <div class="card-content">
-                      <div class="">
-                        <h2 class="font-bold text-[20px]">{post.data.title}</h2>
-                        <p>
-                          {post.data.pubDate.toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </p>
-                        <p class="description line-clamp-3 text-[20px]">
-                          {post.data.description}
-                        </p>
-                      </div>
-    
-                      <Button>Read more</Button>
-
+                  <div class="card-content">
+                    <div class="content">
+                      <h2 class="title">{post.data.title}</h2>
+                      <p class="date">
+                        {post.data.pubDate.toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </p>
+                      <p class="description text-[16px]">
+                        {post.data.description}
+                      </p>
                     </div>
-                  </a>
+                    <a href={`/knowledgehub/${post.id}`} class="card-link">
+                      <Button class="button">Read more</Button>
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -77,20 +77,29 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 </section>
 
 <style>
-  .description {
-    height: 96px;
+  .gap-content {
+    padding-bottom: var(--spacing-between);
+  }
+
+  .title {
+    color: var(--color-primary-dark);
+    font-size: var(--font-description);
+    font-weight: bold;
+  }
+  .date {
+    padding-bottom: 20px;
+  }
+  .card-link {
+    width: 178px;
   }
 
   .card {
-    height: 620px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background-color: var(--color-primary);
   }
-  
 
-  .line-clamp-3 {
+  .description {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -101,14 +110,19 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
     display: flex;
     flex-direction: column;
     gap: 40px;
-  }
+  } 
 
   .gap-content {
     gap: var(--spacing-between);
   }
 
-  .pyChaiMaiDai {
+  .heading {
     padding-top: var(--spacing-between);
     padding-bottom: var(--spacing-between);
+    font-weight: bold;
+  }
+  
+  .image {
+    border-radius: var(--border-radius-md);
   }
 </style>

@@ -37,8 +37,8 @@ const { name, title, profileImage } = Astro.props;
           <a href="#portfolio" class="btn-primary">View My Work</a>
           <a href="#contact" class="btn-primary">Get In Touch</a>
         </div>
+        </div>
         
-      </div>
     </div>
   </Container>
 </section>
@@ -64,7 +64,7 @@ const { name, title, profileImage } = Astro.props;
     flex-direction: column;
     justify-content: space-between;
   }
-
+  
   .hero-all-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -72,8 +72,9 @@ const { name, title, profileImage } = Astro.props;
     height: 464px;
     padding-top: var(--spacing-between);
   }
-
+  
   .hero-title {
+    font-weight: bold;
     font-size: var(--font-title);
     line-height: 1;
     color: var(--color-primary-dark);
