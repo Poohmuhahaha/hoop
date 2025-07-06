@@ -8,7 +8,7 @@ const navItems = [
 ];
 ---
 
-<nav class="navigation">
+<nav class="navigation">  
   <div class="container">
     <div class="nav-content">
       <div class="logo">
@@ -18,7 +18,7 @@ const navItems = [
         </a>
       </div>
 
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         {navItems.map((item) => (
           <a href={item.href} class="nav-link">
             {item.name}
@@ -29,6 +29,7 @@ const navItems = [
     </div>
   </div>
 </nav>
+
 
 <style>
   .navigation {
@@ -75,4 +76,14 @@ const navItems = [
     border: 2px solid var(--color-primary-light);
   }
 
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+  }
 </style>
