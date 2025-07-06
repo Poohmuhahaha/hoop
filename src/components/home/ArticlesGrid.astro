@@ -4,11 +4,11 @@ import ArticleCard from "./ArticleCard.astro";
 
 const articles = [
   {
-    title: "Pixel Art & Game Development",
+    title: "Econ Hub",
     excerpt:
       "This is the place that I collect the picture that I draw it and use that drawing skill to create the game",
-    image: "/photos/Maple.png",
-    href: "/articles/pixelandgamedev",
+    image: "/photos/Senku.jpg",
+    href: "/knowledgehub",
   },
   {
     title: "Math hub",
@@ -18,61 +18,19 @@ const articles = [
     href: "/articles/math_hub",
   },
   {
-    title: "Data analysis",
+    title: "Marketing Hub",
     excerpt:
       "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
     image: "/photos/Senku.jpg",
     href: "/articles/math_hub",
   },
 
-  {
-    title: "Data analysis",
-    excerpt:
-      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
-    image: "/photos/Senku.jpg",
-    href: "/articles/math_hub",
-  },
-  {
-    title: "Data analysis",
-    excerpt:
-      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
-    image: "/photos/Senku.jpg",
-    href: "/articles/math_hub",
-  },
-  {
-    title: "Data analysis",
-    excerpt:
-      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
-    image: "/photos/Senku.jpg",
-    href: "/articles/math_hub",
-  },
-  {
-    title: "Data analysis",
-    excerpt:
-      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
-    image: "/photos/Senku.jpg",
-    href: "/articles/math_hub",
-  },
-  {
-    title: "Data analysis",
-    excerpt:
-      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
-    image: "/photos/Senku.jpg",
-    href: "/articles/math_hub",
-  },
-  {
-    title: "Data analysis",
-    excerpt:
-      "This category is the new thing in the world and sure I also want to learn it. It made me crazy",
-    image: "/photos/Senku.jpg",
-    href: "/articles/math_hub",
-  },
 ];
 ---
 
 <section class="articles">
   <Container>
-    <h2 class="article-heading">Knowledge Hub</h2>
+    <h2 class="article-heading">Academics</h2>
 
     <div class="articles-grid">
       {articles.map((article) => <ArticleCard {...article} />)}
