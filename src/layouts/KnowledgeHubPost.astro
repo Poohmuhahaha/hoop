@@ -28,7 +28,7 @@ const { title, pubDate, updatedDate, heroImage, description } = (
       rel="stylesheet"
     />
   </head>
-  
+
   <body>
     <section class="knowledge-content">
       <Navigation />
@@ -45,7 +45,7 @@ const { title, pubDate, updatedDate, heroImage, description } = (
             )
           }
         </div>
-        <KnowledgeHero heroImage={heroImage} title={title} description={description} />
+        <KnowledgeHero class="image" heroImage={heroImage} title={title} description={description} />
         <div class="content">
           <slot />
         </div>
@@ -106,6 +106,7 @@ const { title, pubDate, updatedDate, heroImage, description } = (
     padding: 8px;
     color: var(--color-primary-dark);
     background: white;
+    padding: var(--border-radius-md);
   }
   .content table {
     width: 100%;
@@ -166,9 +167,14 @@ const { title, pubDate, updatedDate, heroImage, description } = (
     max-width: 100%;
     font-size: 24px;
     color: var(--color-primary-dark);
+    padding-top: var(--spacing-between);
     padding-bottom: var(--spacing-between);
     padding-left: 110px;
     padding-right: 110px;
   }
 
+
+  .hero-image-container {
+    padding-bottom: var(--spacing-between);
+  }
 </style>

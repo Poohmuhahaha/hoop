@@ -1,8 +1,8 @@
 ---
-title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
-description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo'
-pubDate: 'Jul 22 2022'
-heroImage: '/public/111.jpg'
+title: 'Emotional Branding: Why People Buy Feelings, Not Just Features'
+description: 'Marketing Hub is the where that I collect my all knowledges about marketing'
+pubDate: 'Jul 5 2025'
+heroImage: '/public/photos/Marketing_hub.jpg'
 ---
 
 

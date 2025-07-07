@@ -40,76 +40,42 @@ body {
 }
 
 
-.btn {
+.btn-primary {
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-description); 
+  cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
+  height: 68px;
+  width: 178px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  border: 2px solid var(--color-primary-light);
+}
+
+.btn-primary:hover {
   border-radius: var(--border-radius-md);
   font-size: var(--font-description);
   cursor: pointer;
   line-height: 1;
   text-decoration: none;
+  height: 68px;
+  width: 178px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-primary-light);
-  transition: background 0.2s, color 0.2s, border 0.2s;
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-dark);
-}
-.btn-primary:hover {
   background-color: var(--color-primary-dark);
   color: var(--color-primary);
 }
 
-.btn-secondary {
-  background-color: var(--color-accent);
-  color: #fff;
-}
-.btn-secondary:hover {
-  background-color: #b91c1c;
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--color-primary-dark);
-  border: 2px solid var(--color-primary-dark);
-}
-.btn-outline:hover {
-  background: var(--color-primary-dark);
-  color: var(--color-primary);
-}
-
 .btn-sm {
-  height: 40px;
-  min-width: 80px;
-  font-size: 14px;
-  padding: 0 16px;
-}
-.btn-md {
-  height: 48px;
-  min-width: 120px;
-  font-size: 16px;
-  padding: 0 24px;
-}
-.btn-lg {
-  height: 56px;
-  min-width: 160px;
-  font-size: 18px;
-  padding: 0 32px;
+  padding: var(--spacing-button);
+  font-size: var(--font-description);
 }
 
-@media (max-width: 768px) {
-  .btn-sm { height: 32px; font-size: 13px; min-width: 64px; }
-  .btn-md { height: 40px; font-size: 14px; min-width: 90px; }
-  .btn-lg { height: 48px; font-size: 16px; min-width: 120px; }
-}
-
-@media (max-width: 480px) {
-  .btn-sm { height: 28px; font-size: 12px; min-width: 48px; }
-  .btn-md { height: 32px; font-size: 13px; min-width: 64px; }
-  .btn-lg { height: 40px; font-size: 14px; min-width: 90px; }
-}
 .card {
   border-radius: var(--border-radius-md);
   font-size: var(--font-dsecription);
