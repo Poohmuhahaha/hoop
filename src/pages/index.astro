@@ -5,8 +5,87 @@ import ArticlesGrid from "../components/home/ArticlesGrid.astro";
 import Contact from "../components/ui/Contact.astro";
 ---
 
-<BaseLayout title="Hoop">
-  <HeroSection />
-  <ArticlesGrid />
-  <Contact/>
-</BaseLayout>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>
+      Hoop - Portfolio & Knowledge Hub | Developer & Content Creator
+    </title>
+    <meta
+      name="title"
+      content="Hoop - Portfolio & Knowledge Hub | Developer & Content Creator"
+    />
+    <meta
+      name="description"
+      content="Welcome to Hoop's personal website featuring portfolio, CV, and knowledge hub with tech articles and insights. Explore my work and learning journey."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, developer, knowledge hub, tech blog, programming, web development, personal website"
+    />
+    <meta name="author" content="Hoop" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yoursite.com/" />
+    <meta property="og:title" content="Hoop - Portfolio & Knowledge Hub" />
+    <meta
+      property="og:description"
+      content="Developer portfolio and knowledge sharing platform with tech insights and personal projects."
+    />
+    <meta property="og:image" content="https://yoursite.com/og-home.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hoop Portfolio Homepage" />
+    <meta property="og:site_name" content="Hoop" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://yoursite.com/" />
+    <meta name="twitter:title" content="Hoop - Portfolio & Knowledge Hub" />
+    <meta
+      name="twitter:description"
+      content="Developer portfolio and knowledge sharing platform with tech insights."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yoursite.com/twitter-home.jpg"
+    />
+    <meta name="twitter:image:alt" content="Hoop Portfolio Homepage" />
+
+        <!-- Canonical URL -->
+    <link rel="canonical" href="https://yoursite.com/">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hoop",
+        "url": "https://yoursite.com",
+        "sameAs": [
+            "https://github.com/Poohmuhahaha",
+            "https://linkedin.com/in/yourprofile"
+        ],
+        "jobTitle": "Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "description": "Developer and content creator sharing knowledge through portfolio and tech articles"
+    }
+    </script>
+  </head>
+  <body>
+    <BaseLayout title="Hoop">
+      <HeroSection />
+      <ArticlesGrid />
+      <Contact />
+    </BaseLayout>
+    </html>
+</body>

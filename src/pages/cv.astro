@@ -102,53 +102,119 @@ const projects = [
   },
 ];
 ---
-
-<BaseLayout
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>CV - Hoop | Developer Resume & Professional Experience</title>
+    <meta name="title" content="CV - Hoop | Developer Resume & Professional Experience">
+    <meta name="description" content="Professional CV and resume of Hoop - Developer with experience in web development, programming, and technology. View my skills, education, and work experience.">
+    <meta name="keywords" content="CV, resume, developer CV, professional experience, skills, education, work history, portfolio">
+    <meta name="author" content="Hoop">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://yoursite.com/cv">
+    <meta property="og:title" content="Hoop - Developer CV & Resume">
+    <meta property="og:description" content="Professional CV showcasing development skills, experience, and educational background.">
+    <meta property="og:image" content="https://yoursite.com/og-cv.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hoop Professional CV">
+    <meta property="og:site_name" content="Hoop">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yoursite.com/cv">
+    <meta name="twitter:title" content="Hoop - Developer CV & Resume">
+    <meta name="twitter:description" content="Professional CV showcasing development skills and experience.">
+    <meta name="twitter:image" content="https://yoursite.com/twitter-cv.jpg">
+    <meta name="twitter:image:alt" content="Hoop Professional CV">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yoursite.com/cv">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hoop",
+        "url": "https://yoursite.com/cv",
+        "jobTitle": "Developer",
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Your University"
+        },
+        "knowsAbout": [
+            "Web Development",
+            "Programming",
+            "JavaScript",
+            "React",
+            "Node.js"
+        ],
+        "description": "Professional developer with expertise in modern web technologies"
+    }
+    </script>
+</head>
+  
+<body>
+  
+  <BaseLayout
+  
   title={`${portfolioData.name} - ${portfolioData.title}`}
->
-
-
+  >
+  
+  
   <Hero
-    name={portfolioData.name}
-    title={portfolioData.title}
-    profileImage={portfolioData.profileImage}
+  name={portfolioData.name}
+  title={portfolioData.title}
+  profileImage={portfolioData.profileImage}
   />
-
-
+  
+  
   <CaseStudies projects={projects} />
-
-
+  
+  
   <About
-    name={portfolioData.name}
-    profileImage="/111.jpg"
-    bio="I'm a passionate full-stack developer with over 3 years of experience creating digital solutions that make a difference. I specialize in modern web technologies and love turning complex problems into simple, beautiful designs."
-    skills={[
-      "GA4",
-      "GTM",
-      "Maileon",
-      "AstroJS",
-      "Python",
-      "Next.JS",
-      "MongoDB",
-      "Meta ads",
-      "Tiktok ads",
-      "GitHub",
-      "Ahref",
-      "GAds",
-      "Search Console",
-      "Keywords Planner",
-      "Figma",
-      "PowerBI",
-      "LLM AI Prompt"
-    ]}
+  name={portfolioData.name}
+  profileImage="/111.jpg"
+  bio="I'm a passionate full-stack developer with over 3 years of experience creating digital solutions that make a difference. I specialize in modern web technologies and love turning complex problems into simple, beautiful designs."
+  skills={[
+    "GA4",
+    "GTM",
+    "Maileon",
+    "AstroJS",
+    "Python",
+    "Next.JS",
+    "MongoDB",
+    "Meta ads",
+    "Tiktok ads",
+    "GitHub",
+    "Ahref",
+    "GAds",
+    "Search Console",
+    "Keywords Planner",
+    "Figma",
+    "PowerBI",
+    "LLM AI Prompt"
+  ]}
     experience="3+ Years"
     education="Now: Digital Marketing at Harbour.Space"
-  />
-
-
-  <Contact
+    />
+    
+    
+    <Contact
     email={portfolioData.email}
     phone={portfolioData.phone}
-  />
-
-</BaseLayout>
+    />
+    
+  </BaseLayout>
+</body>
+  </html>
