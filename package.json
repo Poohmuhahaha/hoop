@@ -17,5 +17,11 @@
     "astro": "^5.10.1",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }
