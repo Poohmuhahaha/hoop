@@ -28,14 +28,14 @@ const { post } = Astro.props;
             day: "numeric",
         })}
         </p>
-        <p class="description text-[16px]">
+        <p class="description">
             {post.data.description}
             </p>
             </div>
             <a href={`/knowledgehub/${post.id}`} class="card-link">
-        <Button class="button">Read more</Button>
-        </a>
-        </div>
+              <Button>Read more</Button>
+            </a>
+          </div>
   </div>
 </div>
 
@@ -49,9 +49,6 @@ const { post } = Astro.props;
   }
   .date {
     padding-bottom: 20px;
-  }
-  .card-link {
-    width: 178px;
   }
 
   .card {
