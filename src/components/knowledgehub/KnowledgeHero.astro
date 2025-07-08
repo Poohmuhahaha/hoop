@@ -10,6 +10,9 @@ const { heroImage, title, description } = Astro.props;
       width={1280}
       height={643}
       alt={title}
+        loading="lazy"
+  decoding="async"
+  fetchpriority="auto"
     />
     {description && <div class="image-description">{description}</div>}
   </div>

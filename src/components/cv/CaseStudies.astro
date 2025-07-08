@@ -40,7 +40,11 @@ const { projects = [] } = Astro.props;
             <div class="project-image">
 
 
-              <Image src={project.image} alt={project.title} width="30" height="30"/>
+              <Image src={project.image} alt={project.title} width="30" height="30"
+                loading="lazy"
+  decoding="async"
+  fetchpriority="auto"
+              />
               <div class="project-overlay">
                 <div class="project-links">
 

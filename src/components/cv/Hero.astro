@@ -24,6 +24,9 @@ const { name, title, profileImage } = Astro.props;
             class="profile-img"
             width="100"
             height="100"
+              loading="lazy"
+  decoding="async"
+  fetchpriority="auto"
           />
       </div>
 

@@ -15,6 +15,9 @@ const { post } = Astro.props;
           src={post.data.heroImage}
           alt={post.data.title}
           class="image"
+            loading="lazy"
+  decoding="async"
+  fetchpriority="auto"
         />
       )}
     </div>
