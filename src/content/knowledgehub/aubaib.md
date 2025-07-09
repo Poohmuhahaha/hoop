@@ -1,7 +1,7 @@
 ---
 title: 'Aubaib.Pixart: The kindness frog'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo'
-pubDate: 'Jul 1 2025'
+pubDate: 2025-07-01
 heroImage: '/public/photos/aubaib.png'
 ---
 

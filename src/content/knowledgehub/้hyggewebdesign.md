@@ -1,7 +1,7 @@
 ---
 title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo'
-pubDate: 'Jul 22 2022'
+pubDate: 2025-07-01
 heroImage: '/public/photos/hygge.png'
 ---
 

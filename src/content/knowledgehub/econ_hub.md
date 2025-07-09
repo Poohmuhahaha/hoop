@@ -1,7 +1,7 @@
 ---
 title: 'Why Do We Value Things?'
 description: 'Economics Hub is the where that I collect my all knowledges about Economics'
-pubDate: 'Jul 6 2025'
+pubDate: 2025-07-01
 heroImage: '/public/photos/Econ_hub.jpg'
 ---
 

@@ -6,13 +6,13 @@ export const siteConfig: SiteConfig = {
   title: 'Hoop - Personal Portfolio',
   description: 'Personal portfolio website with Knowledge Hub and CV',
   author: 'Your Name',
-  url: 'https://yourwebsite.com', // เปลี่ยนเป็น URL จริงของคุณ
+  url: 'https://poohhoop.xyz', // เปลี่ยนเป็น URL จริงของคุณ
   image: '/images/og-image.jpg',
   social: {
     github: 'https://github.com/Poohmuhahaha',
-    linkedin: 'https://linkedin.com/in/yourprofile',
-    twitter: 'https://twitter.com/yourhandle',
-    email: 'your.email@example.com',
+    linkedin: 'https://www.linkedin.com/in/phuwadon-thontra/',
+    twitter: 'https://x.com/aslpooht',
+    email: 'your.thontrapoowadol@gmail.com',
   },
 };
 

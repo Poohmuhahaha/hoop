@@ -1,0 +1,144 @@
+---
+// src/components/ui/LazyLoader.astro
+
+export interface Props {
+  threshold?: number;
+  rootMargin?: string;
+  class?: string;
+}
+
+const {
+  threshold = 0.1,
+  rootMargin = "50px",
+  class: className = "",
+} = Astro.props;
+
+const id = `lazy-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div
+  id={id}
+  class={`lazy-loader ${className}`}
+  data-threshold={threshold}
+  data-root-margin={rootMargin}
+>
+  <div class="lazy-placeholder">
+    <div class="loading-spinner"></div>
+    <p>กำลังโหลด...</p>
+  </div>
+  <div class="lazy-content" style="display: none;">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .lazy-loader {
+    min-height: 200px;
+    position: relative;
+  }
+
+  .lazy-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    color: #6c757d;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .lazy-content {
+    transition: opacity 0.3s ease;
+  }
+
+  .lazy-content.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  class LazyLoader {
+    element: HTMLElement;
+    threshold: number;
+    rootMargin: string;
+
+    constructor(element: HTMLElement) {
+      this.element = element;
+      this.threshold = parseFloat(element.dataset.threshold || "0.1");
+      this.rootMargin = element.dataset.rootMargin || "50px";
+      this.init();
+    }
+
+    init() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.loadContent();
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: this.threshold,
+          rootMargin: this.rootMargin,
+        }
+      );
+
+      observer.observe(this.element);
+    }
+
+    loadContent() {
+      const placeholder = this.element.querySelector(
+        ".lazy-placeholder"
+      ) as HTMLElement;
+      const content = this.element.querySelector(
+        ".lazy-content"
+      ) as HTMLElement;
+
+      // Simulate loading time
+      setTimeout(() => {
+        if (placeholder && content) {
+          placeholder.style.display = "none";
+          content.style.display = "block";
+          content.classList.add("fade-in");
+        }
+      }, 300);
+    }
+  }
+
+  // Initialize all lazy loaders
+  document.addEventListener("DOMContentLoaded", () => {
+document.querySelectorAll('.lazy-loader').forEach((element) => {
+  if (element instanceof HTMLElement) {
+    new LazyLoader(element);
+    }});
+  });
+</script>

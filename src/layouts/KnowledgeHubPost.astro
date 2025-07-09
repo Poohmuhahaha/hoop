@@ -2,12 +2,11 @@
 import type { CollectionEntry } from "astro:content";
 import Navigation from "../components/ui/Navigation.astro";
 import Footer from "../components/ui/Footer.astro";
-import { Image } from "astro:assets";
 import Container from "../components/ui/Container.astro";
 import KnowledgeHero from "../components/knowledgehub/KnowledgeHero.astro";
 
 type Props = CollectionEntry<"knowledgehub">;
-const { title, pubDate, updatedDate, heroImage, description } = (
+const { title, pubDate, heroImage, description } = (
   Astro.props as Props
 ).data;
 ---
@@ -35,14 +34,6 @@ const { title, pubDate, updatedDate, heroImage, description } = (
         <h1 class="title">{title}</h1>
         <div class="date">
           {pubDate && `Published: ${new Date(pubDate).toLocaleDateString()}`}
-          {
-            updatedDate && (
-              <span>
-                {" "}
-                | Updated: {new Date(updatedDate).toLocaleDateString()}
-              </span>
-            )
-          }
         </div>
         <KnowledgeHero
           class="image"

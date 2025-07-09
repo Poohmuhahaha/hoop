@@ -1,7 +1,7 @@
 ---
 title: 'The Hidden Poetry of Numbers: Why Math is More Than Just Logic'
 description: 'Math Hub is the where that I collect my all knowledges about mathematics'
-pubDate: 'Jul 7 2025'
+pubDate: 2025-07-01
 heroImage: '/public/photos/Math_hub.jpg'
 ---
 
