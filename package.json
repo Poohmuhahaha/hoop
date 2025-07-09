@@ -19,7 +19,8 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "terser": "^5.43.1"
   },
   "peerDependencies": {
     "typescript": "^5"

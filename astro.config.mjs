@@ -2,6 +2,9 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
@@ -13,4 +16,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [mdx(), sitemap()],
+  
 });
