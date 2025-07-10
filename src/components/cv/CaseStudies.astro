@@ -227,4 +227,54 @@ const { projects = [] } = Astro.props;
   .hidden-project {
     display: none !important;
   }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .case-study-heading {
+      font-size: 24px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .case-study-heading {
+      font-size: 18px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .project-link {
+      width: 36px;
+      height: 36px;
+    }
+    .tech-tag {
+      font-size: 10px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+  @media (max-width: 375px) {
+    .projects-grid {
+      gap: 4px;
+    }
+    .case-study-heading {
+      font-size: 14px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+    .project-title, .project-description {
+      font-size: 10px;
+    }
+    .btn-primary {
+      font-size: 10px;
+      padding: 4px 0;
+    }
+  }
+
 </style>

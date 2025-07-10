@@ -102,4 +102,46 @@ const { name, title, profileImage } = Astro.props;
     border-radius: var(--border-radius-md);
     object-fit: cover;
   }
+
+  @media (max-width: 1024px) {
+    .hero-all-content {
+      grid-template-columns: 1fr;
+      height: auto;
+      gap: 24px;
+    }
+    .hero-title {
+      font-size: 28px;
+    }
+    .hero-actions {
+      gap: 12px;
+      padding-top: 12px;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-all-content {
+      gap: 12px;
+      padding-top: 8px;
+    }
+    .hero-title {
+      font-size: 20px;
+      padding-bottom: 8px;
+    }
+    .profile-img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  @media (max-width: 375px) {
+    .hero-title {
+      font-size: 16px;
+      padding-bottom: 4px;
+    }
+    .hero-all-content {
+      gap: 4px;
+    }
+    .profile-img {
+      width: 48px;
+      height: 48px;
+    }
+  }
 </style>

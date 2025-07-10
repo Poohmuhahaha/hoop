@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'Knowledge_Hub', href: '/knowledgehub' },
@@ -21,6 +20,11 @@ const navItems = [
         </a>
       </div>
 
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-links" id="nav-toggle-btn" type="button">
+        <span class="hamburger"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
       <div class="nav-links" id="nav-links">
         {navItems.map((item) => (
           <a href={item.href} class="nav-link">
@@ -33,6 +37,25 @@ const navItems = [
   </div>
 </nav>
 
+<script is:inline>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('nav-toggle-btn');
+      const nav = document.getElementById('nav-links');
+      btn?.addEventListener('click', function () {
+        nav?.classList.toggle('open');
+        btn.setAttribute('aria-expanded', nav?.classList.contains('open') ? 'true' : 'false');
+      });
+      // Close menu on link click (mobile UX)
+      nav?.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  }
+</script>
 
 <style>
   .navigation {
@@ -56,6 +79,10 @@ const navItems = [
   }
 
   .nav-links {
+    display: flex;
+    transition: all 0.3s;
+  }
+  .nav-links.open {
     display: flex;
   }
 
@@ -88,5 +115,84 @@ const navItems = [
     border: none;
     cursor: pointer;
     margin-left: auto;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 20;
+  }
+  .hamburger {
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary-dark);
+    display: block;
+    position: relative;
+  }
+  .hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: inherit;
+    left: 0;
+    transition: all 0.3s;
+  }
+  .hamburger::before { top: -8px; }
+  .hamburger::after { top: 8px; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--color-primary);
+      flex-direction: column;
+      gap: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-toggle {
+      display: flex;
+    }
+  }
+  @media (max-width: 375px) {
+    .nav-content {
+      flex-direction: column;
+      height: auto;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .logo-link {
+      gap: 4px;
+    }
+    .profile-img {
+      width: 24px;
+      height: 24px;
+    }
+    .nav-link {
+      font-size: 12px;
+      padding: 4px;
+    }
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+    }
   }
 </style>

@@ -90,4 +90,29 @@ import { Image } from "astro:assets";
     height: 100%;
   }
 
+  @media (max-width: 375px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding-top: 8px;
+    }
+    .hero-text {
+      height: auto;
+      gap: 8px;
+    }
+    .hero-title {
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+    .hero-description {
+      font-size: 12px;
+    }
+    .hero-image {
+      height: 160px;
+    }
+    .hero-img {
+      height: 160px;
+    }
+  }
+
 </style>

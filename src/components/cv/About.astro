@@ -170,4 +170,77 @@ const {
   .btn-primary {
     width: 100%;
   }
+
+  @media (max-width: 1024px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .section-title {
+      font-size: 24px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+    .skills-title {
+      font-size: 18px;
+      padding-top: 12px;
+      padding-bottom: 8px;
+    }
+    .skills-grid {
+      gap: 8px;
+      padding-bottom: 12px;
+    }
+    .image-container {
+      width: 300px;
+      height: 400px;
+    }
+  }
+  @media (max-width: 768px) {
+    .about-content {
+      gap: 12px;
+    }
+    .section-title {
+      font-size: 16px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .skills-title {
+      font-size: 14px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+    .skills-grid {
+      gap: 4px;
+      padding-bottom: 4px;
+    }
+    .image-container {
+      width: 120px;
+      height: 160px;
+    }
+    .bio-text, .detail-value, .detail-item, .skill-tag {
+      font-size: 10px;
+    }
+  }
+  @media (max-width: 375px) {
+    .about-content {
+      gap: 4px;
+    }
+    .section-title {
+      font-size: 12px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+    .skills-title {
+      font-size: 10px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+    .image-container {
+      width: 64px;
+      height: 80px;
+    }
+    .bio-text, .detail-value, .detail-item, .skill-tag {
+      font-size: 8px;
+    }
+  }
 </style>

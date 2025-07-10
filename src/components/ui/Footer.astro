@@ -30,14 +30,47 @@ const socialLinks = [
 <style>
   .footer {
     background-color: var(--color-primary-dark);
-    color: white;
-    padding: var(--spacing-md);
-  }
-
-  .footer-link {
-    text-decoration: none;
     color: var(--color-primary);
-    text-decoration: underline;
+    padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+    font-size: var(--font-description);
+    width: 100%;
   }
-
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+  }
+  .footer-copyright {
+    text-align: center;
+    line-height: 1.6;
+    font-size: var(--font-small);
+    color: var(--color-primary);
+    opacity: 0.9;
+  }
+  .footer-link {
+    text-decoration: underline;
+    color: var(--color-accent);
+    font-weight: 500;
+    transition: color 0.2s;
+    word-break: break-all;
+  }
+  .footer-link:hover, .footer-link:focus {
+    color: var(--color-primary-light);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  @media (max-width: 600px) {
+    .footer {
+      padding: var(--spacing-md) 0 var(--spacing-sm) 0;
+      font-size: var(--font-small);
+    }
+    .footer-bottom {
+      gap: var(--spacing-xs);
+    }
+    .footer-copyright {
+      font-size: 0.85rem;
+    }
+  }
 </style>

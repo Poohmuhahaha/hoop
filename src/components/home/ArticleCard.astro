@@ -83,4 +83,50 @@ const { title, excerpt, image, href } = Astro.props;
     -webkit-line-clamp: 3;
   }
 
+  @media (max-width: 1024px) {
+    .article-img {
+      width: 300px;
+      height: 170px;
+      max-width: 300px;
+      max-height: 170px;
+    }
+    .article-title {
+      font-size: 18px;
+    }
+    .article-excerpt {
+      font-size: 14px;
+      height: 60px;
+    }
+  }
+  @media (max-width: 768px) {
+    .article-img {
+      width: 100%;
+      height: 120px;
+      max-width: 100%;
+      max-height: 120px;
+    }
+    .article-title {
+      font-size: 16px;
+    }
+    .article-excerpt {
+      font-size: 12px;
+      height: 48px;
+    }
+  }
+  @media (max-width: 375px) {
+    .article-img {
+      height: 80px;
+      max-height: 80px;
+    }
+    .article-title {
+      font-size: 14px;
+      padding-bottom: 8px;
+    }
+    .article-excerpt {
+      font-size: 10px;
+      height: 32px;
+      -webkit-line-clamp: 2;
+    }
+  }
+
 </style>
