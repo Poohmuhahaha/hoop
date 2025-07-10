@@ -3,26 +3,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/home/HeroSection.astro";
 import ArticlesGrid from "../components/home/ArticlesGrid.astro";
 import Contact from "../components/ui/Contact.astro";
+import { performanceMonitor } from "@/utils/performance";
+import { withCache } from "@/utils/cache";
 ---
 
 <!doctype html>
 <html>
   <head>
+    <script>
+      import("@/utils/performance.js").then((module) => {
+        module.initPerformanceMonitoring();
+      });
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="shortcut icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <title>
       Poohhoop - Portfolio & Knowledge Hub | Developer & Content Creator
     </title>
-    <meta
-      name="title"
-      content="Poohhoop - Portfolio & Knowledge Hub"
-    />
+    <meta name="title" content="Poohhoop - Portfolio & Knowledge Hub" />
     <meta
       name="description"
       content="Welcome to Hoop's personal website featuring portfolio, CV, and knowledge hub with tech articles and insights. Explore my work and learning journey."

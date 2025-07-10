@@ -5,6 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogCard from "../../components/knowledgehub/BlogCard.astro";
 import Heading from "../../components/knowledgehub/Heading.astro";
 
+
 type Post = {
   id: string;
   data: {
@@ -23,6 +24,7 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 <!doctype html>
 <html lang="en">
   <head>
+
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

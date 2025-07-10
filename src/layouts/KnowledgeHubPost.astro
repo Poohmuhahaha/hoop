@@ -4,6 +4,8 @@ import Navigation from "../components/ui/Navigation.astro";
 import Footer from "../components/ui/Footer.astro";
 import Container from "../components/ui/Container.astro";
 import KnowledgeHero from "../components/knowledgehub/KnowledgeHero.astro";
+import OptimizedImage from "@/components/ui/OptimizedImage.astro";
+import LazyLoader from "@/components/ui/LazyLoader.astro";
 
 type Props = CollectionEntry<"knowledgehub">;
 const { title, pubDate, heroImage, description } = (
@@ -41,10 +43,13 @@ const { title, pubDate, heroImage, description } = (
           title={title}
           description={description}
         />
-        <div class="content">
-          <slot />
-        </div>
-      </Container>
+
+        <LazyLoader>
+          <div class="content">
+            <slot />
+          </div>
+        </LazyLoader>
+        </Container>
 
       <Footer />
     </section>
