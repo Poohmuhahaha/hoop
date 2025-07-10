@@ -139,33 +139,6 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
         padding-bottom: var(--spacing-between);
         gap: var(--spacing-between);
       }
-      @media (max-width: 1200px) {
-        .gap-content {
-          gap: 24px;
-        }
-      }
-      @media (max-width: 1024px) {
-        .gap-content {
-          gap: 16px;
-        }
-        .grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-        }
-      }
-      @media (max-width: 768px) {
-        .gap-content {
-          gap: 8px;
-        }
-        .grid {
-          grid-template-columns: 1fr !important;
-        }
-      }
-      @media (max-width: 375px) {
-        .gap-content {
-          gap: 4px;
-          padding-bottom: 8px;
-        }
-      }
     </style>
   </body>
 </html>
