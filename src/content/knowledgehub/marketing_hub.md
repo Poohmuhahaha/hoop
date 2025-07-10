@@ -2,7 +2,7 @@
 title: 'Emotional Branding: Why People Buy Feelings, Not Just Features'
 description: 'Marketing Hub is the where that I collect my all knowledges about marketing'
 pubDate: 2025-07-01
-heroImage: '/public/photos/Marketing_hub.jpg'
+heroImage: '/photos/Marketing_hub.jpg'
 ---
 
 
