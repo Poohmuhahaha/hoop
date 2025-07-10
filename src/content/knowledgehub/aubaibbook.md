@@ -2,7 +2,7 @@
 title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo'
 pubDate: 2025-07-01
-heroImage: '/public/photos/aubaibbook.png'
+heroImage: '/photos/aubaibbook.png'
 ---
 
 

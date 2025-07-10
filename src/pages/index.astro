@@ -3,18 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/home/HeroSection.astro";
 import ArticlesGrid from "../components/home/ArticlesGrid.astro";
 import Contact from "../components/ui/Contact.astro";
-import { performanceMonitor } from "@/utils/performance";
-import { withCache } from "@/utils/cache";
 ---
 
 <!doctype html>
 <html>
   <head>
-    <script>
-      import("@/utils/performance.js").then((module) => {
-        module.initPerformanceMonitoring();
-      });
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

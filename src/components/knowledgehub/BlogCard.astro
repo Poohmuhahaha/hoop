@@ -8,43 +8,45 @@ const { post } = Astro.props;
 <div class="card col-span-4">
   <div class="card">
     <div class="image-container">
-      {post.data.heroImage && (
-        <Image
-          width="720"
-          height="200"
-          src={post.data.heroImage}
-          alt={post.data.title}
-          class="image"
+      {
+        post.data.heroImage && (
+          <Image
+            width="720"
+            height="200"
+            src={post.data.heroImage}
+            alt={post.data.title}
+            class="image"
             loading="lazy"
-  decoding="async"
-  fetchpriority="auto"
-        />
-      )}
+            decoding="async"
+            fetchpriority="auto"
+          />
+        )
+      }
     </div>
     <div class="card-content">
       <div class="content">
         <h2 class="title">{post.data.title}</h2>
         <p class="date">
-          {post.data.pubDate.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        })}
+          {
+            post.data.pubDate.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
         </p>
         <p class="description">
-            {post.data.description}
-            </p>
-            </div>
-            <a href={`/knowledgehub/${post.id}`} class="card-link">
-              <Button>Read more</Button>
-            </a>
-          </div>
+          {post.data.description}
+        </p>
+      </div>
+      <a href={`/knowledgehub/${post.id}`} class="card-link">
+        <Button>Read more</Button>
+      </a>
+    </div>
   </div>
 </div>
 
 <style>
-
-
   .title {
     color: var(--color-primary-dark);
     font-size: var(--font-description);
@@ -73,19 +75,17 @@ const { post } = Astro.props;
     gap: 40px;
     justify-content: space-between;
     height: 300px;
-
-  } 
+  }
 
   .gap-content {
     gap: var(--spacing-between);
   }
-  
+
   .image {
     border-radius: var(--border-radius-md);
-        width: 400px;
+    width: 400px;
     height: 225px;
-        max-width: 100%;
+    max-width: 100%;
     max-height: 100%;
   }
-
 </style>
